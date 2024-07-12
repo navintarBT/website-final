@@ -586,11 +586,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
                                                                     <!-- <a class="dropdown-item" href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a> -->
                                                                     <a class="dropdown-item" href="close_payment_doc.php?id=<?php echo $row['cp_id']; ?>">ເອກກະສານປິດສັນຍາ</a>
                                                                     <hr>
-<<<<<<< HEAD
-=======
                                                                     <!-- <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['cp_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
                                                                     <a data-cp_id="<?= $row['cp_id']; ?>" href="?delete=<?= $row['cp_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a> -->
->>>>>>> efe2abb4fd8d31b6d3404e458f881f2d527fb9d2
                                                                 </div>
                                                             </div>
                                                         </td>
