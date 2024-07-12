@@ -7,7 +7,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
     // User is not logged in or has incorrect user_status, redirect back to login page
     header("Location: http://localhost/Loan-management-system/login");
     exit();
-}?>
+} ?>
 
 <head>
     <meta charset="utf-8">
@@ -416,27 +416,29 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                     </li>
                     <li><a href="homepage.php" class="ai-icon" aria-expanded="false">
                             <i class="bi bi-house-door-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ໜ້າຫຼັກ</span>
+                            <span style="font-size: 16px;" class="nav-text">ໜ້າຫຼັກ</span>
                         </a>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 28px;" class="bi bi-person-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນລູກຄ້າ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນລູກຄ້າ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="customer_insert.php">ບັນທຶກຂໍ້ມູນລູກຄ້າ</a></li>
-                            <li><a style="font-size: 16px;"class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false" href="javascript:void()" >ລາຍງານຂໍ້ມູນລູກຄ້າ</a><ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="customer_select_history.php">ລາຍງານຂໍ້ມູນບຸກຄົນ</a></li>
-                            <li><a style="font-size: 16px;" href="customer_select_offer.php">ລາຍງານຂໍ້ມູນສະເໜີຂໍກູູ້ຢືມ</a></li>
-                            <li><a style="font-size: 16px;" href="customer_select_Identification_card.php">ລາຍງານຂໍ້ມູນບັດປະຈຳຕົວ</a></li>
-                            <li><a style="font-size: 16px;" href="customer_selelct_passport.php">ລາຍງານຂໍ້ມູນໜັງສືເດີນທາງ</a>
-                            <li><a style="font-size: 16px;" href="customer_select_famirybook.php">ລາຍງານຂໍ້ມູນສຳມະໂນຄົວ</a>
-                            <li><a style="font-size: 16px;" href="customer_select_contact.php">ລາຍງານຂໍ້ມູນການຕິດຕໍ່ພົວພັນ</a>
-                            <li><a style="font-size: 16px;" href="customer_select_Income-expenditure.php">ລາຍງານຂໍ້ມູນ ລາຍຮັບ - ລາຈ່າຍ</a>
+                            <li><a style="font-size: 16px;" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false" href="javascript:void()">ລາຍງານຂໍ້ມູນລູກຄ້າ</a>
+                                <ul aria-expanded="false">
+                                    <li><a style="font-size: 16px;" href="customer_select_history.php">ລາຍງານຂໍ້ມູນບຸກຄົນ</a></li>
+                                    <li><a style="font-size: 16px;" href="customer_select_offer.php">ລາຍງານຂໍ້ມູນສະເໜີຂໍກູູ້ຢືມ</a></li>
+                                    <li><a style="font-size: 16px;" href="customer_select_Identification_card.php">ລາຍງານຂໍ້ມູນບັດປະຈຳຕົວ</a></li>
+                                    <li><a style="font-size: 16px;" href="customer_selelct_passport.php">ລາຍງານຂໍ້ມູນໜັງສືເດີນທາງ</a>
+                                    <li><a style="font-size: 16px;" href="customer_select_famirybook.php">ລາຍງານຂໍ້ມູນສຳມະໂນຄົວ</a>
+                                    <li><a style="font-size: 16px;" href="customer_select_contact.php">ລາຍງານຂໍ້ມູນການຕິດຕໍ່ພົວພັນ</a>
+                                        <ul><a style="font-size: 16px;" href="customer_select_Income-expenditure.php">ລາຍງານຂໍ້ມູນ ລາຍຮັບ - ລາຈ່າຍ</a>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                        </ul>
-                        
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 24px;" class="bi bi-map-fill"></i>
@@ -445,14 +447,14 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="collateral_insert_land.php">ບັນທຶກຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</a></li>
                             <li><a style="font-size: 16px;" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;" class="nav-text">ລາຍງານຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="collateral_select_land.php">ລາຍງານທີ່ດິນ-ສິ່ງປູກສ້າງ</a></li>
-                            <li><a style="font-size: 16px;" href="collateral_select_car.php">ລາຍງານລົດໃຫຍ່-ລົດຈັກ</a></li>
-                            <li><a style="font-size: 16px;" href="collateral_select_other.php">ລາຍງານຫຼັກຊັບອື່ນໆ</a></li>
-                        </ul>
-                    </li>
+                                    <span style="font-size: 16px;" class="nav-text">ລາຍງານຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</span>
+                                </a>
+                                <ul aria-expanded="false">
+                                    <li><a style="font-size: 16px;" href="collateral_select_land.php">ລາຍງານທີ່ດິນ-ສິ່ງປູກສ້າງ</a></li>
+                                    <li><a style="font-size: 16px;" href="collateral_select_car.php">ລາຍງານລົດໃຫຍ່-ລົດຈັກ</a></li>
+                                    <li><a style="font-size: 16px;" href="collateral_select_other.php">ລາຍງານຫຼັກຊັບອື່ນໆ</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -466,7 +468,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 28px;" class="bi bi-people-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="guarantor_insert.php">ບັນທຶກຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</a></li>
@@ -475,7 +477,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 28px;" class="bi bi-card-checklist"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນສັນຍາກູ້ຢຶມ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນສັນຍາກູ້ຢຶມ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="loan_agreement_insert.php">ບັນທຶກຂໍ້ມູນສັນຍາກູ້ຢຶມ</a></li>
@@ -484,17 +486,17 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-box-arrow-right"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="credit_release_insert.php">ບັນທຶກຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</a></li>
                             <li><a style="font-size: 16px;" href="credit_release_select.php">ລາຍງານຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</a></li>
                         </ul>
                     </li>
-                   
+
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-box-arrow-left"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການຈ່າຍຄ່າງວດ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນການຈ່າຍຄ່າງວດ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="payment_insert.php">ບັນທຶກຂໍ້ມູນການຈ່າຍຄ່າງວດ</a></li>
@@ -503,7 +505,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-credit-card-2-front-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການປິດສັນຍາ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນການປິດສັນຍາ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="close_payment_insert.php">ບັນທຶກຂໍ້ມູນການປິດສັນຍາ</a></li>
@@ -512,48 +514,48 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-person-lines-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານ</span>
                         </a>
                         <ul aria-expanded="false">
-                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານເຄົາເຕິ້</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານເຄົາເຕີ້</a></li>
+                            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                    <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານເຄົາເຕິ້</span>
+                                </a>
+                                <ul aria-expanded="false">
+                                    <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານ</a></li>
+                                    <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານເຄົາເຕີ້</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                    <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານການເງິນ</span>
+                                </a>
+                                <ul aria-expanded="false">
+                                    <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານການເງິນ</a></li>
+                                    <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານການເງິນ</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                    <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານສິນເຊື່ຶອ</span>
+                                </a>
+                                <ul aria-expanded="false">
+                                    <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານສິນເຊື່ອ</a></li>
+                                    <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານສິນເຊື່ຶ</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານການເງິນ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານການເງິນ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານການເງິນ</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານສິນເຊື່ຶອ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານສິນເຊື່ອ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານສິນເຊື່ຶ</a></li>
-                        </ul>
-                    </li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i style="font-size: 35px;" class="bi bi-person-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນອຳນວຍການ</span>
+                            <i style="font-size: 35px;" class="bi bi-person-fill"></i>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນອຳນວຍການ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນອຳນວຍການ</a></li>
                             <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນອຳນວຍການ</a></li>
                         </ul>
                     </li>
-                    
+
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-person-bounding-box"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນຜູ້ນຳໃຊ້</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນຜູ້ນຳໃຊ້</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນຜູ້ນຳໃຊ້</a></li>
@@ -594,127 +596,128 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                         if ($data <> 0) { ?>
                             <div class=" row">
                                 <div class="col-lg-12">
+                                    <!-- <div class="card"> -->
                                     <div class="card">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title">ຂໍ້ມູນເອກະສານຢືນຢັນຕົວຕົນ</h4>
-                                                <div style="display: flex;" class="date">
-                                                    <h4 class="card-title">ວັນທີບັນທຶກຂໍ້ມູນ : </h4>
-                                                    <h4 class="card-title">&nbsp;&nbsp;&nbsp;<?= $data['gt_date_in']; ?></h4>
-                                                    <h4 class="card-title">&nbsp;&nbsp;&nbsp;<?= $data['gt_time_in']; ?></h4>
-                                                </div>
+                                        <div class="card-header">
+                                            <h4 class="card-title">ຂໍ້ມູນເອກະສານຢືນຢັນຕົວຕົນ</h4>
+                                            <div style="display: flex;" class="date">
+                                                <h4 class="card-title">ວັນທີບັນທຶກຂໍ້ມູນ : </h4>
+                                                <h4 class="card-title">&nbsp;&nbsp;&nbsp;<?= $data['gt_date_in']; ?></h4>
+                                                <h4 class="card-title">&nbsp;&nbsp;&nbsp;<?= $data['gt_time_in']; ?></h4>
                                             </div>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-xl-12">
-                                                        <div class="mb-1 row">
-                                                            <div class="col-xl-3">
-                                                                <label class="col-form-label" for="validationCustom06">ລະຫັດລູກຄ້າ
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <div class="mb-1 row">
+                                                        <div class="col-xl-3">
+                                                            <label class="col-form-label" for="validationCustom06">ລະຫັດລູກຄ້າ
 
-                                                                </label>
-                                                                <div class="input-group">
+                                                            </label>
+                                                            <div class="input-group">
 
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" class="form-control cus_runing" value="<?php echo $data['cus_runing'] ?>" id="validationCustom01" placeholder="ປ້ອນລະຫັດລູກຄ້າ..." required="" name="cus_runing">
-                                                                </div>
-                                                                <label class="col-form-label" for="validationCustom06">ຊື່ ແລະ ນາມສະກຸນ
-
-                                                                </label>
-                                                                <div class="input-group">
-
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['cus_fname'] ?>" class="form-control cus_fname" id="validationCustom01" placeholder="ປ້ອນຊື່ ແລະ ນາມສະກຸນ..." required="" name="cus_fname" readonly>
-                                                                </div>
-                                                                <label class="col-form-label" for="validationCustom06">ລະຫັດຜູ້ຄ້ຳປະກັນ
-
-                                                                </label>
-                                                                <div class="input-group">
-
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" class="form-control gt_runing_id" id="validationCustom01" value="<?php echo $data['gt_runing_id'] ?>" required="" name="gt_runing_id" readonly>
-                                                                </div>
-                                                                <label class="col-form-label" for="validationCustom06">ຊື່ ແລະ ນາມສະກຸນ ຜູ້ຄ້ຳປະກັນ
-
-                                                                </label>
-                                                                <div class="input-group">
-
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_flname'] ?>" class="form-control gt_flname" id="validationCustom01" placeholder="ປ້ອນຊື່ ແລະ ນາມສະກຸນ  ຜູ້ຄ້ຳປະກັນ..." required="" name="gt_flname">
-                                                                </div>
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" class="form-control cus_runing" value="<?php echo $data['cus_runing'] ?>" id="validationCustom01" placeholder="ປ້ອນລະຫັດລູກຄ້າ..." required="" name="cus_runing">
                                                             </div>
-                                                            <div class="col-xl-3">
-                                                                <label class="col-form-label" for="validationCustom06">ອາຍຸ
+                                                            <label class="col-form-label" for="validationCustom06">ຊື່ ແລະ ນາມສະກຸນ
 
-                                                                </label>
-                                                                <div class="input-group">
+                                                            </label>
+                                                            <div class="input-group">
 
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" value="<?php echo $data['gt_age'] ?> ປີ" type="text" class="form-control gt_age" id="validationCustom01" placeholder="ປ້ອນອາຍຸ..." required="" name="gt_age">
-                                                                </div>
-                                                                <label class="col-form-label" for="validationCustom06">ສັນຊາດ
-
-                                                                </label>
-                                                                <div class="input-group">
-
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" value="<?php echo $data['gt_nationality'] ?>" type="text" class="form-control gt_nationality" id="validationCustom01" placeholder="ປ້ອນສັນຊາດ..." required="" name="gt_nationality">
-                                                                </div>
-                                                                <label class="col-form-label" for="validationCustom06">ອາຊີບ
-
-                                                                </label>
-                                                                <div class="input-group">
-
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_job'] ?>" class="form-control gt_job" id="validationCustom01" placeholder="ປ້ອນອາຊີບ..." required="" name="gt_job">
-                                                                </div>
-                                                                <label class="col-form-label" for="validationCustom06">ບ້ານຢູ່ປັດຈຸບັນ
-
-                                                                </label>
-                                                                <div class="input-group">
-
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_vill'] ?>" class="form-control gt_vill" id="validationCustom01" placeholder="ປ້ອນບ້ານຢູ່ປັດຈຸບັນ..." required="" name="gt_vill">
-                                                                </div>
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['cus_fname'] ?>" class="form-control cus_fname" id="validationCustom01" placeholder="ປ້ອນຊື່ ແລະ ນາມສະກຸນ..." required="" name="cus_fname" readonly>
                                                             </div>
-                                                            <div class="col-xl-3">
-                                                                <label class="col-form-label" for="validationCustom06">ເມືອງ
+                                                            <label class="col-form-label" for="validationCustom06">ລະຫັດຜູ້ຄ້ຳປະກັນ
 
-                                                                </label>
-                                                                <div class="input-group">
+                                                            </label>
+                                                            <div class="input-group">
 
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_dis'] ?>" class="form-control gt_dis" id="validationCustom01" placeholder="ປ້ອນເມືອງ..." required="" name="gt_dis">
-                                                                </div>
-                                                                <label class="col-form-label" for="validationCustom06">ແຂວງ
-
-                                                                </label>
-                                                                <div class="input-group">
-
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_pro'] ?>" class="form-control gt_pro" id="validationCustom01" placeholder="ປ້ອນແຂວງ..." required="" name="gt_pro">
-                                                                </div>
-                                                                <label class="col-form-label" for="validationCustom06">ຖືບັດປະຈຳຕົວເລກທີ່
-
-                                                                </label>
-                                                                <div class="input-group">
-
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_card_id'] ?>" class="form-control gt_card_id" id="validationCustom01" placeholder="ປ້ອນຖືບັດປະຈຳຕົວເລກທີ່..." required="" name="gt_card_id">
-                                                                </div>
-                                                                <label class="col-form-label" for="validationCustom06">ລົງວັນທີ
-
-                                                                </label>
-                                                                <div class="input-group">
-
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_date_card'] ?>" class="form-control gt_date_card" id="validationCustom01" placeholder="ລົງວັນທີ..." required="" name="gt_date_card">
-                                                                </div>
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" class="form-control gt_runing_id" id="validationCustom01" value="<?php echo $data['gt_runing_id'] ?>" required="" name="gt_runing_id" readonly>
                                                             </div>
-                                                            <div class="col-xl-3">
-                                                                <label class="col-form-label" for="validationCustom06">ເບີໂທ
+                                                            <label class="col-form-label" for="validationCustom06">ຊື່ ແລະ ນາມສະກຸນ ຜູ້ຄ້ຳປະກັນ
 
-                                                                </label>
-                                                                <div class="input-group">
+                                                            </label>
+                                                            <div class="input-group">
 
-                                                                    <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_tel'] ?>" class="form-control gt_tel" id="validationCustom01" placeholder="ປ້ອນເບີໂທ..." required="" name="gt_tel">
-                                                                </div>
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_flname'] ?>" class="form-control gt_flname" id="validationCustom01" placeholder="ປ້ອນຊື່ ແລະ ນາມສະກຸນ  ຜູ້ຄ້ຳປະກັນ..." required="" name="gt_flname">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label class="col-form-label" for="validationCustom06">ອາຍຸ
+
+                                                            </label>
+                                                            <div class="input-group">
+
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" value="<?php echo $data['gt_age'] ?> ປີ" type="text" class="form-control gt_age" id="validationCustom01" placeholder="ປ້ອນອາຍຸ..." required="" name="gt_age">
+                                                            </div>
+                                                            <label class="col-form-label" for="validationCustom06">ສັນຊາດ
+
+                                                            </label>
+                                                            <div class="input-group">
+
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" value="<?php echo $data['gt_nationality'] ?>" type="text" class="form-control gt_nationality" id="validationCustom01" placeholder="ປ້ອນສັນຊາດ..." required="" name="gt_nationality">
+                                                            </div>
+                                                            <label class="col-form-label" for="validationCustom06">ອາຊີບ
+
+                                                            </label>
+                                                            <div class="input-group">
+
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_job'] ?>" class="form-control gt_job" id="validationCustom01" placeholder="ປ້ອນອາຊີບ..." required="" name="gt_job">
+                                                            </div>
+                                                            <label class="col-form-label" for="validationCustom06">ບ້ານຢູ່ປັດຈຸບັນ
+
+                                                            </label>
+                                                            <div class="input-group">
+
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_vill'] ?>" class="form-control gt_vill" id="validationCustom01" placeholder="ປ້ອນບ້ານຢູ່ປັດຈຸບັນ..." required="" name="gt_vill">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label class="col-form-label" for="validationCustom06">ເມືອງ
+
+                                                            </label>
+                                                            <div class="input-group">
+
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_dis'] ?>" class="form-control gt_dis" id="validationCustom01" placeholder="ປ້ອນເມືອງ..." required="" name="gt_dis">
+                                                            </div>
+                                                            <label class="col-form-label" for="validationCustom06">ແຂວງ
+
+                                                            </label>
+                                                            <div class="input-group">
+
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_pro'] ?>" class="form-control gt_pro" id="validationCustom01" placeholder="ປ້ອນແຂວງ..." required="" name="gt_pro">
+                                                            </div>
+                                                            <label class="col-form-label" for="validationCustom06">ຖືບັດປະຈຳຕົວເລກທີ່
+
+                                                            </label>
+                                                            <div class="input-group">
+
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_card_id'] ?>" class="form-control gt_card_id" id="validationCustom01" placeholder="ປ້ອນຖືບັດປະຈຳຕົວເລກທີ່..." required="" name="gt_card_id">
+                                                            </div>
+                                                            <label class="col-form-label" for="validationCustom06">ລົງວັນທີ
+
+                                                            </label>
+                                                            <div class="input-group">
+
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_date_card'] ?>" class="form-control gt_date_card" id="validationCustom01" placeholder="ລົງວັນທີ..." required="" name="gt_date_card">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <label class="col-form-label" for="validationCustom06">ເບີໂທ
+
+                                                            </label>
+                                                            <div class="input-group">
+
+                                                                <input style="border: none; font-size: 18px; margin-left: -1.3rem;" type="text" value="<?php echo $data['gt_tel'] ?>" class="form-control gt_tel" id="validationCustom01" placeholder="ປ້ອນເບີໂທ..." required="" name="gt_tel">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
+
                                         </div>
                                     </div>
+                                    <!-- </div> -->
                                 </div>
+
                                 <div class=" row">
                                     <div class="col-lg-12">
                                         <div class="card">

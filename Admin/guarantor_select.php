@@ -690,7 +690,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                                                                         <p style="margin-top: 5px; margin-bottom: -5px; margin-right: 5px;">ເມນູ</p>
                                                                     </center>
                                                                     <hr>
-                                                                    <a class="dropdown-item" href="#">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
+                                                                    <a class="dropdown-item" href="customer_gurarantor.php?id=<?php echo $row['cus_id']; ?>">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                     <a class="dropdown-item" href="guarantor_docs/<?php echo $row['gt_doc_file']; ?>">ເບິ່ງເອກກະສານຜູ້ຄຳປະກັນ</a>
                                                                     <hr>
                                                                     <a class="dropdown-item button_edit" href="guarantor_update.php?id=<?php echo $row['gt_id']; ?> ">ແກ້ໄຂຂໍ້ມູນ</a>

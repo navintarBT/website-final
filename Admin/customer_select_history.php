@@ -799,7 +799,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                                                                 <hr>
                                                                 <a class="dropdown-item" href="customer_profile.php?id=<?php echo $row['cus_id']; ?>">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                 <a class="dropdown-item" href="customer_collateral.php?id=<?php echo $row['cus_id']; ?>">ເບິ່ງຂໍ້ມູນຫຼັກຊັບຄ້ຳປະກັນ</a>
-                                                                <a class="dropdown-item" href="customer_gurarantor.php?id=<?php echo $row['cus_id']; ?>">ເບິ່ງຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</a>
+                                                                <a class="dropdown-item" href=" ">ເບິ່ງຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</a>
                                                                 <a class="dropdown-item" href="docs/<?php echo $row['cus_doc']; ?>">ເບິ່ງເອກກະສານຂໍ້ກູ້ຢຶມເງິນ</a>
                                                                 <hr>
                                                                 <a class="dropdown-item button_edit" href="customer_update_history.php?id=<?php echo $row['cus_id']; ?> ">ແກ້ໄຂຂໍ້ມູນ</a>

@@ -385,7 +385,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
     if (isset($_POST['update'])) {
 
         $id = $_POST['id'];
-
+        echo $id;
         $select_stmt = $conn->prepare('SELECT * FROM customers WHERE cus_id = :id');
         $select_stmt->bindParam(":id", $id);
         $select_stmt->execute();
@@ -435,7 +435,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
         $cus_doc2 = $_POST['cus_doc2'];
         $upload_file = $_FILES['doc_file']['name'];
         $old_doc = "docs/";
-
 
         //มีการอัพโหลดไฟล์
         if ($upload_file != '') {
@@ -753,6 +752,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
 
                 </script>";
         }
+    } else {
+        echo "Not insset";
     }
 
 
