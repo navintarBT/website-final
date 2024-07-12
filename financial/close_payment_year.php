@@ -316,83 +316,82 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
             <!--**********************************
             Sidebar start
         ***********************************-->
-            <div class="dlabnav">
-                <div class="dlabnav-scroll">
-                    <ul class="metismenu" id="menu">
-                        <li class="dropdown header-profile">
-                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
-                                <img src="../user_images/<?php echo $_SESSION['user_image']; ?>" width="20" alt="">
-                                <div class="header-info ms-3">
-                                    <span class="font-w600 "><b><?php echo $_SESSION['user_flname']; ?></b></span>
-                                    <small class="font-w400"><?php echo $_SESSION['user_satus']; ?></small>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a href="" class="dropdown-item ai-icon">
-                                    <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    <span class="ms-2">ໂປຣຟາຍ</span>
-                                </a>
-                                <a href="" class="dropdown-item ai-icon">
-                                    <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
-                                    </svg>
-                                    <span class="ms-2">Inbox</span>
-                                </a>
-                                <a href="http://localhost/Loan-management-system/login/index.php" class="dropdown-item ai-icon">
-                                    <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                        <polyline points="16 17 21 12 16 7"></polyline>
-                                        <line x1="21" y1="12" x2="9" y2="12"></line>
-                                    </svg>
-                                    <span class="ms-2">ອອກຈາກລະບົບ </span>
-                                </a>
+        <div class="dlabnav">
+            <div class="dlabnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="dropdown header-profile">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            <img src="../user_images/<?php echo $_SESSION['user_image']; ?>" width="20" alt="">
+                            <div class="header-info ms-3">
+                                <span class="font-w600 "><b><?php echo $_SESSION['user_flname']; ?></b></span>
+                                <small class="font-w400"><?php echo $_SESSION['user_satus']; ?></small>
                             </div>
-                        </li>
-                        <li><a href="homepage.php" class="ai-icon" aria-expanded="false">
-                                <i class="bi bi-house-door-fill"></i>
-                                <span class="nav-text">ໜ້າຫຼັກ</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="" class="dropdown-item ai-icon">
+                                <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span class="ms-2">ໂປຣຟາຍ</span>
                             </a>
-                        </li>
-                       
-                       
-                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                                <i style="font-size: 28px;" class="bi bi-people-fill"></i>
-                                <span class="nav-text">ຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</span>
+                            <a href="" class="dropdown-item ai-icon">
+                                <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <span class="ms-2">Inbox</span>
                             </a>
-                            <ul aria-expanded="false">
-                                <li><a style="font-size: 18px;" href="guarantor_insert.php">ບັນທຶກຜູ້ຄ້ຳປະກັນ</a></li>
-                                <li><a style="font-size: 18px;" href="guarantor_select.php">ລາຍງານຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                                <i style="font-size: 28px;" class="bi bi-card-checklist"></i>
-                                <span class="nav-text">ສັນຍາກູ້ຢຶມ</span>
+                            <a href="http://localhost/Loan-management-system/login/index.php" class="dropdown-item ai-icon">
+                                <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                    <polyline points="16 17 21 12 16 7"></polyline>
+                                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                                </svg>
+                                <span class="ms-2">ອອກຈາກລະບົບ </span>
                             </a>
-                            <ul aria-expanded="false">
-                                <li><a style="font-size: 18px;" href="loan_agreement_insert.php">ບັນທຶກສັນຍາກູ້ຢຶມ</a></li>
-                                <li><a style="font-size: 18px;" href="loan_agreement_select.php">ລາຍງານສັນຍາກູ້ຢຶມ</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                                <i style="font-size: 30px;" class="bi bi-box-arrow-right"></i>
-                                <span class="nav-text">ປ່ອຍສິນເຊື່ອ</span>
-                            </a>
-                            <ul aria-expanded="false">
-                                <li><a style="font-size: 18px;" href="credit_release_insert.php">ບັນທຶກການປ່ອຍສິນເຊື່ອ</a></li>
-                                <li><a style="font-size: 18px;" href="credit_release_select.php">ລາຍງານການປ່ອຍສິນເສື່ອ</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="copyright">
-                    <p><strong>ລະບົບບໍລິຫານສະຖາບັນເງິນກູ້</strong> © 2024 ປະລິນຢາຕີ</p>
-
-                    </div>
+                        </div>
+                    </li>
+                    <li><a href="homepage.php" class="ai-icon" aria-expanded="false">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span class="nav-text">ໜ້າຫຼັກ</span>
+                        </a>
+                    </li>
+                   
+                   
+                    <li><a class="has-arrow ai-icon" class="ai-icon" aria-expanded="false">
+                            <i style="font-size: 30px;" class="bi bi-cash-stack"></i>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນໜີ້ສິນ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="payment_insert_debt.php">ບັນທຶກຂໍ້ມູນໜີ້ສິນ</a></li>
+                            <li><a style="font-size: 16px;" href="debt_select.php">ລາຍງານຂໍ້ມູນໜີ້ສິນ</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i style="font-size: 30px;" class="bi bi-box-arrow-left"></i>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການຈ່າຍຄ່າງວດ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="payment_insert.php">ບັນທຶກຂໍ້ມູນການຈ່າຍຄ່າງວດ</a></li>
+                            <li><a style="font-size: 16px;" href="payment_select.php">ລາຍງານຂໍ້ມູນການຈ່າຍຄ່າງວດ</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i style="font-size: 30px;" class="bi bi-credit-card-2-front-fill"></i>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການປິດສັນຍາ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="close_payment_insert.php">ບັນທຶກຂໍ້ມູນການປິດສັນຍາ</a></li>
+                            <li><a style="font-size: 16px;" href="close_payment_select.php">ລາຍງານຂໍ້ມູນການປິດສັນຍາ</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="copyright">
+						<p><strong>ລະບົບບໍລິຫານສະຖາບັນເງິນກູ້</strong> © 2024 ປະລິນຢາຕີ</p>
                 </div>
             </div>
+        </div>
             <!--**********************************
             Sidebar end
         ***********************************-->
@@ -590,8 +589,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
                                                                     <!-- <a class="dropdown-item" href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a> -->
                                                                     <a class="dropdown-item" href="close_payment_doc.php?id=<?php echo $row['cp_id']; ?>">ເອກກະສານປິດສັນຍາ</a>
                                                                     <hr>
-                                                                    <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['cp_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
-                                                                    <a data-cp_id="<?= $row['cp_id']; ?>" href="?delete=<?= $row['cp_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
                                                                 </div>
                                                             </div>
                                                         </td>

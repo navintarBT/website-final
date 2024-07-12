@@ -432,16 +432,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
                             <li><a style="font-size: 16px;" href="close_payment_select.php">ລາຍງານຂໍ້ມູນການປິດສັນຍາ</a></li>
                         </ul>
                     </li>
-					<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i style="font-size: 30px;" class="bi bi-person-bounding-box"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຢືນຢັນຂໍ້ມູນ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="close_payment_select_confirm.php">ຢືນຢັນຂໍ້ມູນລຼກຄ້າ</a></li>
-                            <li><a style="font-size: 16px;" href="payment_select_confirm_report.php">ລາຍງານຂໍ້ມູນການຢືນຢັນ</a></li>
-                        </ul>
-                    </li>
-                   
                 </ul>
                 <div class="copyright">
 						<p><strong>ລະບົບບໍລິຫານສະຖາບັນເງິນກູ້</strong> © 2024 ປະລິນຢາຕີ</p>

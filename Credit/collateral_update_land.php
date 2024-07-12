@@ -1392,7 +1392,7 @@ else{
                                                 <div class="mb-1 row">
                                                     <div class="col-xl-3">
                                                         <input type="hidden" value="<?= $data['la_id']; ?>" class="form-control la_id" name="id">
-                                                        <input type="text" class="form-control cus_id" value="<?= $data['cus_id']; ?>" name="cus_id">
+                                                        <input type="hidden" class="form-control cus_id" value="<?= $data['cus_id']; ?>" name="cus_id">
                                                         <input type="hidden" value="<?= $data['la_map0']; ?>" class="form-control la_id" name="la_map0_0">
                                                         <input type="hidden" value="<?= $data['la_image0']; ?>" class="form-control la_id" name="la_image0_0">
                                                         <input type="hidden" value="<?= $data['la_image1']; ?>" class="form-control la_id" name="la_image1_1">

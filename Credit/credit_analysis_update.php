@@ -808,8 +808,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                                             <div class="col-xl-12">
                                                 <div class="mb-1 row">
                                                     <div class="col-xl-3">
-                                                        <input type="text" value="<?= $data['ca_id']; ?>" required class="form-control cus_id" name="id">
-                                                        <input type="text" class="form-control cus_runing" value="<?= $data['cus_id']; ?>" id="validationCustom01" placeholder="ປ້ອນລະຫັດລູກຄ້າ..." required="" name="cus_id">
+                                                        <input type="hidden" value="<?= $data['ca_id']; ?>" required class="form-control cus_id" name="id">
+                                                        <input type="hidden" class="form-control cus_runing" value="<?= $data['cus_id']; ?>" id="validationCustom01" placeholder="ປ້ອນລະຫັດລູກຄ້າ..." required="" name="cus_id">
                                                         <label class="col-form-label" for="validationCustom06">ລະຫັດລູກຄ້າ
                                                             <span class="text-danger">*</span>
                                                         </label>
