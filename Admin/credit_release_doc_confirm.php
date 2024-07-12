@@ -104,8 +104,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                 <h5 style="position: absolute; font-size: 14px;margin-top: 29.5rem; margin-left: 29.3rem;"><?= $data['cr_ap_amount_text']; ?></h5>
                 <h5 style="position: absolute; font-size: 14px;margin-top: 31rem; margin-left: 14rem;"><?= number_format($data['cr_interest']); ?></h5>
                 <h5 style="position: absolute; font-size: 14px;margin-top: 33.8rem; margin-left: 11.4rem;"><?= $date_now ?></h5>
-
-
                 <img src="pro_doc_image/ປ່ອຍສິນເຊື່ອ1.jpg" width="790px" height="1000px"  alt="" >
                     <!-- PDF CONTENT START -->
 

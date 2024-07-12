@@ -50,7 +50,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
 
     if (isset($_REQUEST['delete'])) {
         $id = $_REQUEST['delete'];
-
         $select_stmt = $conn->prepare('SELECT * FROM collateral_land WHERE la_id = :id');
         $select_stmt->bindParam(':id', $id);
         $select_stmt->execute();
@@ -61,17 +60,14 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
         $delete_stmt->execute();
 
         unlink("collateral_docs/" . $row['la_doc_file']);
-
         unlink("collateral_map/" . $row['la_map0']);
         unlink("collateral_map/" . $row['la_map1']);
-
         unlink("collateral_images/" . $row['la_image0']);
         unlink("collateral_images/" . $row['la_image1']);
         unlink("collateral_images/" . $row['la_image2']);
         unlink("collateral_images/" . $row['la_image3']);
     }
     ?>
-
 </head>
 
 <body>
@@ -94,7 +90,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
     $show_count_cus_date_ins = mysqli_fetch_array($sql_count_cus_date_ins);
     ?>
    
-        <!--*******************
+    <!--*******************
         Preloader start
     ********************-->
         <div id="preloader">
@@ -358,7 +354,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
                         </a>
                     </li>
                    
-                   
                     <li><a class="has-arrow ai-icon" class="ai-icon" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-cash-stack"></i>
                             <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນໜີ້ສິນ</span>
@@ -591,6 +586,11 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
                                                                     <!-- <a class="dropdown-item" href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a> -->
                                                                     <a class="dropdown-item" href="close_payment_doc.php?id=<?php echo $row['cp_id']; ?>">ເອກກະສານປິດສັນຍາ</a>
                                                                     <hr>
+<<<<<<< HEAD
+=======
+                                                                    <!-- <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['cp_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
+                                                                    <a data-cp_id="<?= $row['cp_id']; ?>" href="?delete=<?= $row['cp_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a> -->
+>>>>>>> efe2abb4fd8d31b6d3404e458f881f2d527fb9d2
                                                                 </div>
                                                             </div>
                                                         </td>

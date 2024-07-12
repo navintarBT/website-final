@@ -5,7 +5,7 @@
 session_start();
 if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມິນ") {
     // User is logged in and has the correct user_status, allow access to the page
-    echo "Welcome, " . $_SESSION['user_id'] . "! You can access this page.";
+    // echo "Welcome, " . $_SESSION['user_id'] . "! You can access this page.";
 } else {
     // User is not logged in or has incorrect user_status, redirect back to login page
     header("Location: http://localhost/Loan-management-system/login");

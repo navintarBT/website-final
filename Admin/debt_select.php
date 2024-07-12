@@ -661,7 +661,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                                                     <th>ດອກເບ້ຍທີ່ຍັງເຫຼືອ</th>
                                                     <th>ໜີ່ສິນຍັງເຫຼືອທັງໝົດ</th>
                                                     <th>ສະຖານະ</th>
-                                                    <th>ເມນູ</th>
+                                                    <!-- <th>ເມນູ</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -706,7 +706,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                                                             ?>
 
                                                         </td>
-                                                        <td>
+                                                        <!-- <td>
                                                             <div class="btn-group dropstart mb-1">
                                                                 <div class="btn-link" data-bs-toggle="dropdown">
                                                                     <svg width="24px" height="24px" viewbox="0 0 24 24" version="1.1">
@@ -729,7 +729,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                                                                     <a data-dt_id="<?= $row['dt_id']; ?>" href="?delete=<?= $row['dt_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
                                                                 </div>
                                                             </div>
-                                                        </td>
+                                                        </td> -->
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>

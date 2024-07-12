@@ -1,11 +1,10 @@
 <?php
-   require_once "config/db_s_and_k_project.php";
+   require_once "config/conect_nal.php";
    $date_now = date('d/m/Y');
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $stmt = $conn->query("SELECT * FROM close_payment WHERE cp_id = '$id' ");
-        $stmt->execute();
-        $data = $stmt->fetch();
+        $sql = mysqli_query($conns, "SELECT * FROM close_payment WHERE cus_id = '$id' ");
+        $data = mysqli_fetch_array($sql);
     }
 ?>
 <!DOCTYPE html>
@@ -93,16 +92,13 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
         <div class="row">
             <div class="col-lg-5">
                 <div  style="font-family: Phetsarath OT;width: 790px; height: 1000px; " class="doc">
-                <h5 style="position: absolute; font-size: 14px;margin-top: 13.2rem; margin-left: 36rem;"><?= $data['cp_id']; ?></h5>
-
-                <h5 style="position: absolute; font-size: 14px;margin-top: 14.8rem; margin-left: 36rem;"><?= $date_now; ?></h5>
-                <h5 style="position: absolute; font-size: 14px;margin-top: 19.5rem; margin-left: 13rem;"><?= $data['cus_fname']; ?></h5>
-                <h5 style="position: absolute; font-size: 14px;margin-top: 21rem; margin-left: 21rem;"><?= $data['lg_runing_id']; ?></h5>
-                <h5 style="position: absolute; font-size: 14px;margin-top: 21rem; margin-left: 35rem;"><?= $data['cp_lg_date']; ?></h5>
-                <h5 style="position: absolute; font-size: 14px;margin-top: 25.1rem; margin-left: 13rem;"><?= $date_now; ?></h5>
-                <h5 style="position: absolute; font-size: 14px;margin-top: 25.1rem; margin-left: 28rem;"><?= number_format($data['cp_capital_plus_interest']); ?></h5>
-
-
+                <h5 style="position: absolute; font-size: 14px;margin-top: 10.6rem; margin-left: 36.3rem;"><?= $data['cp_id']; ?></h5>
+                <h5 style="position: absolute; font-size: 14px;margin-top: 12.2rem; margin-left: 36.3rem;"><?= $date_now; ?></h5>
+                <h5 style="position: absolute; font-size: 14px;margin-top: 19.4rem; margin-left: 14rem;"><?= $data['cus_fname']; ?></h5>
+                <h5 style="position: absolute; font-size: 14px;margin-top: 21.1rem; margin-left: 21.5rem;"><?= $data['lg_runing_id']; ?></h5>
+                <h5 style="position: absolute; font-size: 14px;margin-top: 21.1rem; margin-left: 34.8rem;"><?= $data['cp_lg_date']; ?></h5>
+                <h5 style="position: absolute; font-size: 14px;margin-top: 25.6rem; margin-left: 16rem;"><?= $date_now; ?></h5>
+                <h5 style="position: absolute; font-size: 14px;margin-top: 25.6rem; margin-left: 31rem;"><?= number_format($data['cp_capital_plus_interest']); ?></h5>
                 <img src="pro_doc_image/ສົ່ງມອບ01.jpg" width="790px" height="1000px"  alt="" >
                     <!-- PDF CONTENT START -->
 
@@ -110,7 +106,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
             </div>
             <div class="col-lg-5">
                 <img src="pro_doc_image/ສົ່ງມອບ02.jpg" width="790px" height="1000px"  alt="" >
-                
             </div>
             <div class="col-lg-2">
                 <!--**********************************
