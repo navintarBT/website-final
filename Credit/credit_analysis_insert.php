@@ -310,6 +310,9 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
 
     <script>
         $(function() {
+        let amount ="";
+        let indexS ="";
+        let dateLine ="";
             //ຟັງຊັ້ນດຶງຊື່ມາສະແດງ
             $(".cus_runing").keyup(function() {
                 var a = $(".cus_runing").val();
@@ -361,6 +364,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                     },
                     function(output) {
                         $(".ca_amount_offered").val(output);
+                        amount = output;
+                        console.log(amount);
                     })
                 $.post("credit_ca_amount_offereds.php", {
                         cus_runing: a
@@ -373,12 +378,15 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                     },
                     function(output) {
                         $(".ca_employee").val(output);
+                        indexS=output
+                        console.log(indexS);
                     })
                 $.post("credit_analysis_get_phams.php", {
                         cus_runing: a
                     },
                     function(output) {
                         $(".ca_employees").val(output);
+
                     })
                 $.post("credit_analysis_get_purpose.php", {
                         cus_runing: a
@@ -433,6 +441,23 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                     },
                     function(output) {
                         $(".cus_date_of_loan").val(output);
+                        dateLine=output
+                        console.log(dateLine);
+                    })
+                    $.post("credit_analysis_get_cus_date_of_loans.php", {
+                        cus_runing: a
+                    },
+                    function(output) {
+                        $(".ca_set_month").val(output);
+                    })
+
+
+                    $.post("credit_analysis_get_ca_amount_offered.php", {
+                        cus_runing: a
+                    },
+                    function(output) {
+                        $(".ca_amount_released").val(output);
+                        console.log(amount);
                     })
             });
 
@@ -600,15 +625,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
 </head>
 
 <body>
-<?php
 
-if(@$_SESSION['checked']<>1){
-	echo "<script>
-  alert('ລົງຊືີ່ເຂົ້າໃຊ້ກ່ອນ')
-  location='index.php';
-	</script>";
-	}
-else{  
 ?>
     <!--*******************
         Preloader start
@@ -1253,4 +1270,4 @@ else{
 </body>
 
 </html>
-<?php } ?>
+<?php ?>
