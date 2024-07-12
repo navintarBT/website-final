@@ -1216,6 +1216,15 @@ else{
                             <li><a style="font-size: 16px;" href="credit_release_select.php">ລາຍງານຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</a></li>
                         </ul>
                     </li>
+                    <li><a class="has-arrow ai-icon" class="ai-icon" aria-expanded="false">
+                            <i style="font-size: 30px;" class="bi bi-cash-stack"></i>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນໜີ້ສິນ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="payment_insert_debt.php">ບັນທຶກຂໍ້ມູນໜີ້ສິນ</a></li>
+                            <li><a style="font-size: 16px;" href="debt_select.php">ລາຍງານຂໍ້ມູນໜີ້ສິນ</a></li>
+                        </ul>
+                    </li>
                    
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-box-arrow-left"></i>
