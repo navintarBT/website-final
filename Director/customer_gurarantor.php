@@ -548,7 +548,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                         if ($data <> 0) { ?>
                             <div class=" row">
                                 <div class="col-lg-12">
-                                    <div class="card">
+                                    <!-- <div class="card"> -->
                                         <div class="card">
                                             <div class="card-header">
                                                 <h4 class="card-title">ຂໍ້ມູນເອກະສານຢືນຢັນຕົວຕົນ</h4>
@@ -667,11 +667,11 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
 
                                             </div>
                                         </div>
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
                                 <div class=" row">
                                     <div class="col-lg-12">
-                                        <div class="card">
+                                        <!-- <div class="card"> -->
                                             <div class="card-header">
                                                 <h4 class="card-title">ເອກະສານສັນຍາຄຳປະກັນໃຊ້ແທນໜີ້ສິນ</h4>
                                             </div>
@@ -690,7 +690,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                     <p style="font-size: 18px;"><?php echo $data['gt_doc_file'] ?></p>
                                                 </a>
                                             </div>
-                                        </div>
+                                        <!-- </div> -->
                                     </div>
                                 </div>
                             <?php } else { ?>
