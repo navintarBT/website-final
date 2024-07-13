@@ -637,7 +637,6 @@ if ($lg_amount_releaseds) {
                                                                         ເມນູ</p>
                                                                 </center>
                                                                 <hr>
-                                                                <a class="dropdown-item" href="#">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                 <a class="dropdown-item"
                                                                     href="customer_profile.php?id=<?php echo $row['cus_id']; ?>">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                 <a class="dropdown-item"
