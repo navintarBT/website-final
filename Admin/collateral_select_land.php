@@ -665,17 +665,17 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                                     <table id="example" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr>
-                                                <th>
+                                                <!-- <th>
                                                     <div class="form-check custom-checkbox ms-2">
                                                         <input style="cursor: pointer;" type="checkbox" class="form-check-input" id="checkAll" required="">
                                                         <label class="form-check-label" for="checkAll"></label>
                                                     </div>
-                                                </th>
+                                                </th> -->
                                                 <th>#ລະຫັດຫຼັກຊັບ</th>
                                                 <th>ປະເພດຫຼັກຊັບ</th>
                                                 <th>ເລກທີໃບຕາດິນ</th>
-                                                <th>ລົງວັນທີ</th>
-                                                <th>ໃບຕາດິນອອກຊື່</th>
+                                                <!-- <th>ລົງວັນທີ</th>
+                                                <th>ໃບຕາດິນອອກຊື່</th> -->
                                                 <th>ມູນຄ່າເດີມຂອງຊັບສົມບັດ</th>
                                                 <th>ມູນຄ່າຕາມລາຄາຕະຫຼາດ</th>
                                                 <th>ມູນຄ່າປະເມີນຂອງພະນັກງານ</th>
@@ -692,17 +692,17 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                                             foreach ($users as $row) {
                                             ?>
                                                 <tr>
-                                                    <td>
+                                                    <!-- <td>
                                                         <div class="form-check custom-checkbox ms-2">
                                                             <input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
                                                             <label class="form-check-label" for="customCheckBox2"></label>
                                                         </div>
-                                                    </td>
+                                                    </td> -->
                                                     <td><?php echo $row['la_runing_id']; ?></td>
                                                     <td><?php echo $row['la_type']; ?></td>
                                                     <td><?php echo $row['la_land_title']; ?></td>
-                                                    <td><?php echo $row['la_date']; ?></td>
-                                                    <td><?php echo $row['la_name']; ?></td>
+                                                    <!-- <td><?php echo $row['la_date']; ?></td>
+                                                    <td><?php echo $row['la_name']; ?></td> -->
                                                     <td><?php echo number_format($row['la_original_price']); ?> LAK</td>
                                                     <td><?php echo number_format($row['la_market_price']); ?> LAK</td>
                                                     <td><?php echo number_format($row['la_pham']); ?> LAK</td>
