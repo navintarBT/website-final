@@ -722,6 +722,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                                                                     </center>
                                                                     <hr>
                                                                     <a class="dropdown-item" href="loan_agreement_doc/<?php echo $row['lg_doc0']; ?>">ເອກກະສານສັນຍາເງິນກູ້</a>
+                                                                    <a class="dropdown-item" href="loan_agreement_table.php?id=<?php echo $row['cus_id']; ?>">ຕາຕະລາງຈ່າຍຄ່າງວດ</a>
                                                                     <hr>
                                                                 </div>
                                                             </div>

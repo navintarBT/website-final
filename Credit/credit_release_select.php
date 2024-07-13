@@ -451,8 +451,9 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
 
                     <!-- start box -->
                     <div class="row invoice-card-row">
-                        <div class="col-xl-4 col-xxl-3 col-sm-6">
+                    <div class="col-xl-4 col-xxl-3 col-sm-6">
                             <div class="card bg-warning invoice-card">
+                                <a href="credit_release_select.php">
                                 <div class="card-body d-flex">
                                     <div class="icon me-3">
                                         <svg width="33px" height="32px">
@@ -465,10 +466,12 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                                         <span class="text-white fs-18">ຈຳນວນປ່ອຍສິນເຊື່ອທັງໝົດ</span>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-xl-4 col-xxl-3 col-sm-6">
                             <div class="card bg-success invoice-card">
+                            <a href="credit_release_all.php">
                                 <div class="card-body d-flex">
                                     <div class="icon me-3">
                                         <svg width="35px" height="34px">
@@ -482,10 +485,12 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                                         <span class="text-white fs-18">ຈຳນວນສິນເຊື່ອຜ່ອນຊຳລະ</span>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-xl-4 col-xxl-3 col-sm-6">
                             <div class="card bg-info invoice-card">
+                                <a href="credit_release_close.php">
                                 <div class="card-body d-flex">
                                     <div class="icon me-3">
                                         <svg width="35px" height="34px">
@@ -499,6 +504,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                                         <span class="text-white fs-18">ຈຳນວນສິນເຊື່ອປິດສັນຍາແລ້ວ</span>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">

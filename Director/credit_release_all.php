@@ -8,6 +8,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
     header("Location: http://localhost/Loan-management-system/login");
     exit();
 }?>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +23,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
     <meta name="format-detection" content="telephone=no">
 
     <!-- PAGE TITLE HERE -->
-    <title>ລາຍງານຂໍ້ມູນການປິດສັນຍາ</title>
+    <title>ລາຍງານຂໍ້ມູນການປ່ອຍສິນເຊື່ອພາຍໃນອາທິດນີ້ນີ້</title>
 
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
@@ -45,30 +46,23 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
         }
     </style>
 
+
     <?php
     require_once "config/db_s_and_k_project.php";
 
     if (isset($_REQUEST['delete'])) {
         $id = $_REQUEST['delete'];
 
-        $select_stmt = $conn->prepare('SELECT * FROM collateral_land WHERE la_id = :id');
+        $select_stmt = $conn->prepare('SELECT * FROM customers WHERE cus_id = :id');
         $select_stmt->bindParam(':id', $id);
         $select_stmt->execute();
         $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
+        unlink("photo_id/" . $row['cus_image']);
+        unlink("docs/" . $row['cus_doc']);
 
-        $delete_stmt = $conn->prepare('DELETE FROM collateral_land WHERE la_id = :id');
+        $delete_stmt = $conn->prepare('DELETE FROM customers WHERE cus_id = :id');
         $delete_stmt->bindParam(':id', $id);
         $delete_stmt->execute();
-
-        unlink("collateral_docs/" . $row['la_doc_file']);
-
-        unlink("collateral_map/" . $row['la_map0']);
-        unlink("collateral_map/" . $row['la_map1']);
-
-        unlink("collateral_images/" . $row['la_image0']);
-        unlink("collateral_images/" . $row['la_image1']);
-        unlink("collateral_images/" . $row['la_image2']);
-        unlink("collateral_images/" . $row['la_image3']);
     }
     ?>
 
@@ -77,21 +71,40 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
 <body>
     <?php
     require_once "config/conect_nal.php";
+    $sql_count_lg_id = mysqli_query($conns, "select count(cr_id) from credit_release");
+    $show_count_lg_id = mysqli_fetch_array($sql_count_lg_id);
 
-    $sql_count_cus_date_in = mysqli_query($conns, "select count(cp_id) from close_payment where cp_date_in = curdate()");
+    $sql_count_la_status0 = mysqli_query($conns, "select count(cr_id) from credit_release where cr_status = 1");
+    $show_count_la_status0 = mysqli_fetch_array($sql_count_la_status0);
+
+    $sql_count_la_status1 = mysqli_query($conns, "select count(cr_id) from credit_release where cr_status = 2");
+    $show_count_la_status1 = mysqli_fetch_array($sql_count_la_status1);
+
+    $sql_count_cus_date_in = mysqli_query($conns, "select count(cr_id) from credit_release where cr_date_in = curdate()");
     $show_count_cus_date_in = mysqli_fetch_array($sql_count_cus_date_in);
 
-    $sql_count_cus_date_in_week = mysqli_query($conns, "select count(cp_id) from close_payment where week(cp_date_in)=week(curdate()) and year(cp_date_in)=year(curdate())");
+    $sql_count_cus_date_in_week = mysqli_query($conns, "select count(cr_id) from credit_release where week(cr_date_in)=week(curdate()) and year(cr_date_in)=year(curdate())");
     $show_count_cus_date_in_week = mysqli_fetch_array($sql_count_cus_date_in_week);
 
-    $sql_count_cus_date_in_month = mysqli_query($conns, "select count(cp_id) from close_payment where month(cp_date_in)=month(curdate()) and year(cp_date_in)=year(curdate())");
+    $sql_count_cus_date_in_month = mysqli_query($conns, "select count(cr_id) from credit_release where month(cr_date_in)=month(curdate()) and year(cr_date_in)=year(curdate())");
     $show_count_cus_date_in_month = mysqli_fetch_array($sql_count_cus_date_in_month);
 
-    $sql_count_cus_date_in_year = mysqli_query($conns, "select count(cp_id) from close_payment where year(cp_date_in)=year(curdate()) and year(cp_date_in)=year(curdate())");
+    $sql_count_cus_date_in_year = mysqli_query($conns, "select count(cr_id) from credit_release where year(cr_date_in)=year(curdate()) and year(cr_date_in)=year(curdate())");
     $show_count_cus_date_in_year = mysqli_fetch_array($sql_count_cus_date_in_year);
 
-    $sql_count_cus_date_ins = mysqli_query($conns, "select count(cp_id) from close_payment");
-    $show_count_cus_date_ins = mysqli_fetch_array($sql_count_cus_date_ins);
+
+    $sql_sum_pm_pcp_itr = mysqli_query($conns, "select sum(cr_ap_mounnt) from credit_release where cr_date_in = curdate()");
+    $show_sum_pm_pcp_itr = mysqli_fetch_array($sql_sum_pm_pcp_itr);
+
+    $sql_sum_pm_pcp_itr_week = mysqli_query($conns, "select sum(cr_ap_mounnt) from credit_release where week(cr_date_in)=week(curdate()) and year(cr_date_in)=year(curdate())");
+    $show_sum_pm_pcp_itr_week = mysqli_fetch_array($sql_sum_pm_pcp_itr_week);
+
+    $sql_count_pm_pcp_itr_month = mysqli_query($conns, "select sum(cr_ap_mounnt) from credit_release where month(cr_date_in)=month(curdate()) and year(cr_date_in)=year(curdate())");
+    $show_count_pm_pcp_itr_month = mysqli_fetch_array($sql_count_pm_pcp_itr_month);
+
+    $sql_count_pm_pcp_itr_year = mysqli_query($conns, "select sum(cr_ap_mounnt) from credit_release where year(cr_date_in)=year(curdate()) and year(cr_date_in)=year(curdate())");
+    $show_count_pm_pcp_itr_year = mysqli_fetch_array($sql_count_pm_pcp_itr_year);
+
     ?>
 
         <!--*******************
@@ -155,7 +168,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                         <div class="collapse navbar-collapse justify-content-between">
                             <div class="header-left">
                                 <div class="dashboard_bar">
-                                    ລາຍງານຂໍ້ມູນການປິດສັນຍາ
+                                    ລາຍງານຂໍ້ມູນການປ່ອຍສິນເຊື່ອພາຍໃນອາທິດນີ້ນີ້
                                 </div>
                             </div>
                             <ul class="navbar-nav header-right">
@@ -354,28 +367,10 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                     </li>
                     <li><a href="homepage.php" class="ai-icon" aria-expanded="false">
                             <i class="bi bi-house-door-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ໜ້າຫຼັກ</span>
+                            <span class="nav-text">ໜ້າຫຼັກ</span>
                         </a>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i style="font-size: 28px;" class="bi bi-person-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນລູກຄ້າ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="customer_insert.php">ບັນທຶກຂໍ້ມູນລູກຄ້າ</a></li>
-                            <li><a style="font-size: 16px;"class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false" href="javascript:void()" >ລາຍງານຂໍ້ມູນລູກຄ້າ</a><ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="customer_select_history.php">ລາຍງານຂໍ້ມູນບຸກຄົນ</a></li>
-                            <li><a style="font-size: 16px;" href="customer_select_offer.php">ລາຍງານຂໍ້ມູນສະເໜີຂໍກູູ້ຢືມ</a></li>
-                            <li><a style="font-size: 16px;" href="customer_select_Identification_card.php">ລາຍງານຂໍ້ມູນບັດປະຈຳຕົວ</a></li>
-                            <li><a style="font-size: 16px;" href="customer_selelct_passport.php">ລາຍງານຂໍ້ມູນໜັງສືເດີນທາງ</a>
-                            <li><a style="font-size: 16px;" href="customer_select_famirybook.php">ລາຍງານຂໍ້ມູນສຳມະໂນຄົວ</a>
-                            <li><a style="font-size: 16px;" href="customer_select_contact.php">ລາຍງານຂໍ້ມູນການຕິດຕໍ່ພົວພັນ</a>
-                            <li><a style="font-size: 16px;" href="customer_select_Income-expenditure.php">ລາຍງານຂໍ້ມູນ ລາຍຮັບ - ລາຈ່າຍ</a>
-                        </ul>
-                    </li>
-                        </ul>
-                        
-                    </li>
+                    
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 24px;" class="bi bi-map-fill"></i>
                             <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</span>
@@ -429,87 +424,10 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                             <li><a style="font-size: 16px;" href="credit_release_select.php">ລາຍງານຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" class="ai-icon" aria-expanded="false">
-                            <i style="font-size: 30px;" class="bi bi-cash-stack"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນໜີ້ສິນ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="payment_insert_debt.php">ບັນທຶກຂໍ້ມູນໜີ້ສິນ</a></li>
-                            <li><a style="font-size: 16px;" href="debt_select.php">ລາຍງານຂໍ້ມູນໜີ້ສິນ</a></li>
-                        </ul>
-                    </li>
-                   
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i style="font-size: 30px;" class="bi bi-box-arrow-left"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການຈ່າຍຄ່າງວດ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="payment_insert.php">ບັນທຶກຂໍ້ມູນການຈ່າຍຄ່າງວດ</a></li>
-                            <li><a style="font-size: 16px;" href="payment_select.php">ລາຍງານຂໍ້ມູນການຈ່າຍຄ່າງວດ</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i style="font-size: 30px;" class="bi bi-credit-card-2-front-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການປິດສັນຍາ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="close_payment_insert.php">ບັນທຶກຂໍ້ມູນການປິດສັນຍາ</a></li>
-                            <li><a style="font-size: 16px;" href="close_payment_select.php">ລາຍງານຂໍ້ມູນການປິດສັນຍາ</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i style="font-size: 30px;" class="bi bi-person-lines-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານເຄົາເຕິ້</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານເຄົາເຕີ້</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານການເງິນ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານການເງິນ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານການເງິນ</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານສິນເຊື່ຶອ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານສິນເຊື່ອ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານສິນເຊື່ຶ</a></li>
-                        </ul>
-                    </li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i style="font-size: 35px;" class="bi bi-person-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນອຳນວຍການ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນອຳນວຍການ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນອຳນວຍການ</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i style="font-size: 30px;" class="bi bi-person-bounding-box"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນຜູ້ນຳໃຊ້</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນຜູ້ນຳໃຊ້</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນຜູ້ນຳໃຊ້</a></li>
-                        </ul>
-                    </li>
                 </ul>
                 <div class="copyright">
-                    <p><strong>ລະບົບບໍລິຫານສະຖາບັນເງິນກູ້</strong> © 2024 ປະລິນຢາຕີ</p>
+                <p><strong>ລະບົບບໍລິຫານສະຖາບັນເງິນກູ້</strong> © 2024 ປະລິນຢາຕີ</p>
+
                 </div>
             </div>
         </div>
@@ -525,16 +443,72 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
 
                     <div class="row page-titles">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)"></a>ຂໍ້ມູນການປິດສັນຍາ</li>
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">ລາຍງານຂໍ້ມູນການປິດສັນຍາ</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)"></a>ການປ່ອຍສິນເຊື່ອ</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">ລາຍງານຂໍ້ມູນການປ່ອຍສິນເຊື່ອພາຍໃນອາທິດນີ້ນີ້</a></li>
                         </ol>
                     </div>
                     <!-- row -->
 
                     <!-- start box -->
                     <div class="row invoice-card-row">
+                    <div class="col-xl-4 col-xxl-3 col-sm-6">
+                            <div class="card bg-warning invoice-card">
+                                <a href="credit_release_select.php">
+                                <div class="card-body d-flex">
+                                    <div class="icon me-3">
+                                        <svg width="33px" height="32px">
+                                            <path fill-rule="evenodd" fill="rgb(255, 255, 255)" d="M31.963,30.931 C31.818,31.160 31.609,31.342 31.363,31.455 C31.175,31.538 30.972,31.582 30.767,31.583 C30.429,31.583 30.102,31.463 29.845,31.243 L25.802,27.786 L21.758,31.243 C21.502,31.463 21.175,31.583 20.837,31.583 C20.498,31.583 20.172,31.463 19.915,31.243 L15.872,27.786 L11.829,31.243 C11.622,31.420 11.370,31.534 11.101,31.572 C10.832,31.609 10.558,31.569 10.311,31.455 C10.065,31.342 9.857,31.160 9.710,30.931 C9.565,30.703 9.488,30.437 9.488,30.167 L9.488,17.416 L2.395,17.416 C2.019,17.416 1.658,17.267 1.392,17.001 C1.126,16.736 0.976,16.375 0.976,16.000 L0.976,6.083 C0.976,4.580 1.574,3.139 2.639,2.076 C3.703,1.014 5.146,0.417 6.651,0.417 L26.511,0.417 C28.016,0.417 29.459,1.014 30.524,2.076 C31.588,3.139 32.186,4.580 32.186,6.083 L32.186,30.167 C32.186,30.437 32.109,30.703 31.963,30.931 ZM9.488,6.083 C9.488,5.332 9.189,4.611 8.657,4.080 C8.125,3.548 7.403,3.250 6.651,3.250 C5.898,3.250 5.177,3.548 4.645,4.080 C4.113,4.611 3.814,5.332 3.814,6.083 L3.814,14.583 L9.488,14.583 L9.488,6.083 ZM29.348,6.083 C29.348,5.332 29.050,4.611 28.517,4.080 C27.985,3.548 27.263,3.250 26.511,3.250 L11.559,3.250 C12.059,4.111 12.324,5.088 12.325,6.083 L12.325,27.092 L14.950,24.840 C15.207,24.620 15.534,24.500 15.872,24.500 C16.210,24.500 16.537,24.620 16.794,24.840 L20.837,28.296 L24.880,24.840 C25.137,24.620 25.463,24.500 25.802,24.500 C26.140,24.500 26.467,24.620 26.724,24.840 L29.348,27.092 L29.348,6.083 ZM25.092,20.250 L16.581,20.250 C16.205,20.250 15.844,20.101 15.578,19.835 C15.312,19.569 15.162,19.209 15.162,18.833 C15.162,18.457 15.312,18.097 15.578,17.831 C15.844,17.566 16.205,17.416 16.581,17.416 L25.092,17.416 C25.469,17.416 25.829,17.566 26.096,17.831 C26.362,18.097 26.511,18.457 26.511,18.833 C26.511,19.209 26.362,19.569 26.096,19.835 C25.829,20.101 25.469,20.250 25.092,20.250 ZM25.092,14.583 L16.581,14.583 C16.205,14.583 15.844,14.434 15.578,14.168 C15.312,13.903 15.162,13.542 15.162,13.167 C15.162,12.791 15.312,12.430 15.578,12.165 C15.844,11.899 16.205,11.750 16.581,11.750 L25.092,11.750 C25.469,11.750 25.829,11.899 26.096,12.165 C26.362,12.430 26.511,12.791 26.511,13.167 C26.511,13.542 26.362,13.903 26.096,14.168 C25.829,14.434 25.469,14.583 25.092,14.583 ZM25.092,8.916 L16.581,8.916 C16.205,8.916 15.844,8.767 15.578,8.501 C15.312,8.236 15.162,7.875 15.162,7.500 C15.162,7.124 15.312,6.764 15.578,6.498 C15.844,6.232 16.205,6.083 16.581,6.083 L25.092,6.083 C25.469,6.083 25.829,6.232 26.096,6.498 C26.362,6.764 26.511,7.124 26.511,7.500 C26.511,7.875 26.362,8.236 26.096,8.501 C25.829,8.767 25.469,8.916 25.092,8.916 Z"></path>
+                                        </svg>
+
+                                    </div>
+                                    <div>
+                                        <h2 class="text-white invoice-num"><?php echo $show_count_lg_id[0] ?> ລາຍການ</h2>
+                                        <span class="text-white fs-18">ຈຳນວນປ່ອຍສິນເຊື່ອທັງໝົດ</span>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-xxl-3 col-sm-6">
+                            <div class="card bg-success invoice-card">
+                            <a href="credit_release_all.php">
+                                <div class="card-body d-flex">
+                                    <div class="icon me-3">
+                                        <svg width="35px" height="34px">
+                                            <path fill-rule="evenodd" fill="rgb(255, 255, 255)" d="M32.482,9.730 C31.092,6.789 28.892,4.319 26.120,2.586 C22.265,0.183 17.698,-0.580 13.271,0.442 C8.843,1.458 5.074,4.140 2.668,7.990 C0.255,11.840 -0.509,16.394 0.514,20.822 C1.538,25.244 4.224,29.008 8.072,31.411 C10.785,33.104 13.896,34.000 17.080,34.000 L17.286,34.000 C20.456,33.960 23.541,33.044 26.213,31.358 C26.991,30.866 27.217,29.844 26.725,29.067 C26.234,28.291 25.210,28.065 24.432,28.556 C22.285,29.917 19.799,30.654 17.246,30.687 C14.627,30.720 12.067,29.997 9.834,28.609 C6.730,26.671 4.569,23.644 3.752,20.085 C2.934,16.527 3.546,12.863 5.486,9.763 C9.488,3.370 17.957,1.418 24.359,5.414 C26.592,6.808 28.360,8.793 29.477,11.157 C30.568,13.460 30.993,16.016 30.707,18.539 C30.607,19.448 31.259,20.271 32.177,20.371 C33.087,20.470 33.911,19.820 34.011,18.904 C34.363,15.764 33.832,12.591 32.482,9.730 L32.482,9.730 Z"></path>
+                                            <path fill-rule="evenodd" fill="rgb(255, 255, 255)" d="M22.593,11.237 L14.575,19.244 L11.604,16.277 C10.952,15.626 9.902,15.626 9.250,16.277 C8.599,16.927 8.599,17.976 9.250,18.627 L13.399,22.770 C13.725,23.095 14.150,23.254 14.575,23.254 C15.001,23.254 15.427,23.095 15.753,22.770 L24.940,13.588 C25.592,12.937 25.592,11.888 24.940,11.237 C24.289,10.593 23.238,10.593 22.593,11.237 L22.593,11.237 Z"></path>
+                                        </svg>
+
+                                    </div>
+                                    <div>
+                                        <h2 class="text-white invoice-num"><?php echo $show_count_la_status0[0] ?> ລາຍການ</h2>
+                                        <span class="text-white fs-18">ຈຳນວນສິນເຊື່ອຜ່ອນຊຳລະ</span>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-xxl-3 col-sm-6">
+                            <div class="card bg-info invoice-card">
+                                <a href="credit_release_close.php">
+                                <div class="card-body d-flex">
+                                    <div class="icon me-3">
+                                        <svg width="35px" height="34px">
+                                            <path fill-rule="evenodd" fill="rgb(255, 255, 255)" d="M33.002,9.728 C31.612,6.787 29.411,4.316 26.638,2.583 C22.781,0.179 18.219,-0.584 13.784,0.438 C9.356,1.454 5.585,4.137 3.178,7.989 C0.764,11.840 -0.000,16.396 1.023,20.825 C2.048,25.247 4.734,29.013 8.584,31.417 C11.297,33.110 14.409,34.006 17.594,34.006 L17.800,34.006 C20.973,33.967 24.058,33.050 26.731,31.363 C27.509,30.872 27.735,29.849 27.243,29.072 C26.751,28.296 25.727,28.070 24.949,28.561 C22.801,29.922 20.314,30.660 17.761,30.693 C15.141,30.726 12.581,30.002 10.346,28.614 C7.241,26.675 5.080,23.647 4.262,20.088 C3.444,16.515 4.056,12.850 5.997,9.748 C10.001,3.353 18.473,1.401 24.876,5.399 C27.110,6.793 28.879,8.779 29.996,11.143 C31.087,13.447 31.513,16.004 31.227,18.527 C31.126,19.437 31.778,20.260 32.696,20.360 C33.607,20.459 34.432,19.809 34.531,18.892 C34.884,15.765 34.352,12.591 33.002,9.728 L33.002,9.728 Z"></path>
+                                            <path fill-rule="evenodd" fill="rgb(255, 255, 255)" d="M23.380,11.236 C22.728,10.585 21.678,10.585 21.026,11.236 L17.608,14.656 L14.190,11.243 C13.539,10.592 12.488,10.592 11.836,11.243 C11.184,11.893 11.184,12.942 11.836,13.593 L15.254,17.006 L11.836,20.420 C11.184,21.071 11.184,22.120 11.836,22.770 C12.162,23.096 12.588,23.255 13.014,23.255 C13.438,23.255 13.864,23.096 14.190,22.770 L17.608,19.357 L21.026,22.770 C21.352,23.096 21.777,23.255 22.203,23.255 C22.629,23.255 23.054,23.096 23.380,22.770 C24.031,22.120 24.031,21.071 23.380,20.420 L19.962,17.000 L23.380,13.587 C24.031,12.936 24.031,11.887 23.380,11.236 L23.380,11.236 Z"></path>
+                                        </svg>
+
+                                    </div>
+                                    <div>
+                                        <h2 class="text-white invoice-num"><?php echo $show_count_la_status1[0] ?> ລາຍການ</h2>
+                                        <span class="text-white fs-18">ຈຳນວນສິນເຊື່ອປິດສັນຍາແລ້ວ</span>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
                         <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
-                            <a href="close_payment_date_in.php">
+                            <a href="credit_release_date_in.php">
                                 <div class="widget-stat card bg-primary">
                                     <div class="card-body p-4">
                                         <div class="media">
@@ -542,10 +516,13 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                 <i class="las la-user-plus"></i>
                                             </span>
                                             <div class="media-body text-white">
-                                                <p class="mb-1 fs-18">ຈຳນວນການປິດສັນຍາພາຍໃນມື້ນີ້</p>
-                                                <h3 class="text-white"><?php echo $show_count_cus_date_in[0] ?> ລາຍການ</h3>
-
-                                                <small>ພາຍໃນໄລຍະເວລາ 24 ຊົວໂມງ</small>
+                                                <p class="mb-1 fs-18">ຈຳນວນປ່ອຍສິນເຊື່ອພາຍໃນມື້ນີ້</p>
+                                                <h4 class="text-white"><?php echo $show_count_cus_date_in[0] ?> ລາຍການ</h4>
+                                                <p class="mb-1 fs-18">ລວມເປັນເງິນ</p>
+                                                <h4 class="text-white"><?php echo number_format($show_sum_pm_pcp_itr[0]) ?> ກີບ</h4>
+                                                <small>
+                                                    <p>ພາຍໃນໄລຍະເວລາ 24 ຊົ່ວໂມງ</p>
+                                                </small>
                                             </div>
                                         </div>
                                     </div>
@@ -553,7 +530,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                             </a>
                         </div>
                         <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
-                            <a href="close_payment_week.php">
+                            <a href="credit_release_week.php">
                                 <div class="widget-stat card bg-danger">
                                     <div class="card-body  p-4">
                                         <div class="media">
@@ -561,9 +538,13 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                 <i class="la la-users"></i>
                                             </span>
                                             <div class="media-body text-white">
-                                                <p class="mb-1 fs-18">ຈຳນວນການປິດສັນຍາພາຍໃນອະທິດນີ້</p>
-                                                <h3 class="text-white"><?php echo $show_count_cus_date_in_week[0] ?> ລາຍການ</h3>
-                                                <small>ພາຍໃນໄລຍະເວລາ 7 ມື້</small>
+                                                <p class="mb-1 fs-18">ຈຳນວນປ່ອຍສິນເຊື່ອພາຍໃນອະທິດນີ້</p>
+                                                <h4 class="text-white"><?php echo $show_count_cus_date_in_week[0] ?> ລາຍການ</h4>
+                                                <p class="mb-1 fs-18">ລວມເປັນເງິນ</p>
+                                                <h4 class="text-white"><?php echo number_format($show_sum_pm_pcp_itr_week[0]); ?> ກີບ</h4>
+                                                <small>
+                                                    <p>ພາຍໃນໄລຍະເວລາ 7 ມື້</p>
+                                                </small>
                                             </div>
                                         </div>
                                     </div>
@@ -571,7 +552,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                             </a>
                         </div>
                         <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
-                            <a href="close_payment_month.php">
+                            <a href="credit_release_month.php">
                                 <div class="widget-stat card bg-warning">
                                     <div class="card-body p-4">
                                         <div class="media">
@@ -579,9 +560,13 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                 <i class="la la-user"></i>
                                             </span>
                                             <div class="media-body text-white">
-                                                <p class="mb-1 fs-18">ຈຳນວນການປິດສັນຍາພາຍໃນເດືອນນີ້</p>
-                                                <h3 class="text-white"><?php echo $show_count_cus_date_in_month[0] ?> ລາຍການ</h3>
-                                                <small>ພາຍໃນໄລຍະເວລາ 30 ມື້</small>
+                                                <p class="mb-1 fs-18">ຈຳນວນປ່ອຍສິນເຊື່ອພາຍໃນເດືອນນີ້</p>
+                                                <h4 class="text-white"><?php echo $show_count_cus_date_in_month[0] ?> ລາຍການ</h4>
+                                                <p class="mb-1 fs-18">ລວມເປັນເງິນ</p>
+                                                <h4 class="text-white"><?php echo number_format($show_count_pm_pcp_itr_month[0]) ?> ກີບ</h4>
+                                                <small>
+                                                    <p>ພາຍໃນໄລຍະເວລາ 30 ມື້</p>
+                                                </small>
                                             </div>
                                         </div>
                                     </div>
@@ -589,7 +574,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                             </a>
                         </div>
                         <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
-                            <a href="close_payment_year.php">
+                            <a href="credit_release_year.php">
                                 <div class="widget-stat card bg-secondary">
                                     <div class="card-body p-4">
                                         <div class="media">
@@ -597,27 +582,13 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                 <i class="la la-graduation-cap"></i>
                                             </span>
                                             <div class="media-body text-white">
-                                                <p class="mb-1 fs-18">ຈຳນວນການປິດສັນຍາພາຍໃນປີນີ້</p>
-                                                <h3 class="text-white"><?php echo $show_count_cus_date_in_year[0] ?> ລາຍການ</h3>
-                                                <small>ພາຍໃນໄລຍະເວລາ 365 ມື້</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-12 col-xxl-6 col-lg-6 col-sm-6">
-                            <a href="close_payment_select.php">
-                                <div class="widget-stat card bg-dark">
-                                    <div class="card-body p-4">
-                                        <div class="media">
-                                            <span class="me-3">
-                                                <i class="la la-graduation-cap"></i>
-                                            </span>
-                                            <div class="media-body text-white">
-                                                <p class="mb-1 fs-18">ຈຳນວນການປິດສັນຍາທັງໝົດ</p>
-                                                <h3 class="text-white"><?php echo $show_count_cus_date_ins[0] ?> ລາຍການ</h3>
-                                                <small>ພາຍໃນໄລຍະເວລາທັງໝົດຕັ້ງແຕ່ເລີ້ໍມໃຊ້ລະບົບ</small>
+                                                <p class="mb-1 fs-18">ຈຳນວນປ່ອຍສິນເຊື່ອພາຍໃນປີນີ້</p>
+                                                <h4 class="text-white"><?php echo $show_count_cus_date_in_year[0] ?> ລາຍການ</h4>
+                                                <p class="mb-1 fs-18">ລວມເປັນເງິນ</p>
+                                                <h4 class="text-white"><?php echo number_format($show_count_pm_pcp_itr_year[0]) ?> ກີບ</h4>
+                                                <small>
+                                                    <p>ພາຍໃນໄລຍະເວລາ 365 ມື້</p>
+                                                </small>
                                             </div>
                                         </div>
                                     </div>
@@ -632,12 +603,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">ຕາຕະລາງລາຍລະອຽດຂໍ້ມູນລາຍງານຂໍ້ມູນການປິດສັນຍາ</h4>
-                                    <a href="payment_insert.php" class="btn btn-outline-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" style="margin-top: -2px;" class="bi bi-plus-circle-dotted me-2" viewBox="0 0 16 16">
-                                            <path d="M8 0c-.176 0-.35.006-.523.017l.064.998a7.117 7.117 0 0 1 .918 0l.064-.998A8.113 8.113 0 0 0 8 0zM6.44.152c-.346.069-.684.16-1.012.27l.321.948c.287-.098.582-.177.884-.237L6.44.153zm4.132.271a7.946 7.946 0 0 0-1.011-.27l-.194.98c.302.06.597.14.884.237l.321-.947zm1.873.925a8 8 0 0 0-.906-.524l-.443.896c.275.136.54.29.793.459l.556-.831zM4.46.824c-.314.155-.616.33-.905.524l.556.83a7.07 7.07 0 0 1 .793-.458L4.46.824zM2.725 1.985c-.262.23-.51.478-.74.74l.752.66c.202-.23.418-.446.648-.648l-.66-.752zm11.29.74a8.058 8.058 0 0 0-.74-.74l-.66.752c.23.202.447.418.648.648l.752-.66zm1.161 1.735a7.98 7.98 0 0 0-.524-.905l-.83.556c.169.253.322.518.458.793l.896-.443zM1.348 3.555c-.194.289-.37.591-.524.906l.896.443c.136-.275.29-.54.459-.793l-.831-.556zM.423 5.428a7.945 7.945 0 0 0-.27 1.011l.98.194c.06-.302.14-.597.237-.884l-.947-.321zM15.848 6.44a7.943 7.943 0 0 0-.27-1.012l-.948.321c.098.287.177.582.237.884l.98-.194zM.017 7.477a8.113 8.113 0 0 0 0 1.046l.998-.064a7.117 7.117 0 0 1 0-.918l-.998-.064zM16 8a8.1 8.1 0 0 0-.017-.523l-.998.064a7.11 7.11 0 0 1 0 .918l.998.064A8.1 8.1 0 0 0 16 8zM.152 9.56c.069.346.16.684.27 1.012l.948-.321a6.944 6.944 0 0 1-.237-.884l-.98.194zm15.425 1.012c.112-.328.202-.666.27-1.011l-.98-.194c-.06.302-.14.597-.237.884l.947.321zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a6.999 6.999 0 0 1-.458-.793l-.896.443zm13.828.905c.194-.289.37-.591.524-.906l-.896-.443c-.136.275-.29.54-.459.793l.831.556zm-12.667.83c.23.262.478.51.74.74l.66-.752a7.047 7.047 0 0 1-.648-.648l-.752.66zm11.29.74c.262-.23.51-.478.74-.74l-.752-.66c-.201.23-.418.447-.648.648l.66.752zm-1.735 1.161c.314-.155.616-.33.905-.524l-.556-.83a7.07 7.07 0 0 1-.793.458l.443.896zm-7.985-.524c.289.194.591.37.906.524l.443-.896a6.998 6.998 0 0 1-.793-.459l-.556.831zm1.873.925c.328.112.666.202 1.011.27l.194-.98a6.953 6.953 0 0 1-.884-.237l-.321.947zm4.132.271a7.944 7.944 0 0 0 1.012-.27l-.321-.948a6.954 6.954 0 0 1-.884.237l.194.98zm-2.083.135a8.1 8.1 0 0 0 1.046 0l-.064-.998a7.11 7.11 0 0 1-.918 0l-.064.998zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                                        </svg>ຊຳລະຄ່າງວດ
-                                    </a>
+                                    <h4 class="card-title">ລາຍງານຂໍ້ມູນການປ່ອຍສິນເຊື່ອພາຍໃນອາທິດນີ້ນີ້</h4>
+                                    <a href="credit_release_insert.php" class="btn me-2 btn-primary submit"><i class="bi bi-person-plus-fill me-2"></i>ປ່ອຍສິນເຊື່ອ</a>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -650,25 +617,24 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                             <label class="form-check-label" for="checkAll"></label>
                                                         </div>
                                                     </th>
-                                                    <th>ລະຫັດປິດສັນຍາ</th>
+                                                    <th>ລະຫັດປ່ອຍສິນເຊື່ອ</th>
+                                                    <th>ເລກທີ່ສັນຍາເງິນກູ້</th>
                                                     <th>ຊື່ ແລະ ນາມສະກຸນ</th>
-                                                    <th>ເລກທີ່ສັນຍາ</th>
-                                                    <th>ລົງວັນທີ</th>
-                                                    <th>ເງິນຕົ້ນ</th>
+                                                    <th>ເງິນກູ້ໄລຍະເວລາ</th>
+                                                    <th>ວົງເງິນອະນຸມັດຈຳນວນ</th>
+                                                    <th>ວົງເງິນອະນຸມັດເປັນຕົວໜັງສື</th>
                                                     <th>ອັດຕາດອກເບ້ຍ</th>
-                                                    <th>ໄລຍະເວລາ</th>
-                                                    <th>ດອກເບ້ຍ</th>
-                                                    <th>ເງິນຕົ້ນ+ດອກເບ້ຍ</th>
-                                                    <th>ວັນທີ່ປິດສັນຍາ</th>
-                                                    <th>ເວລາ</th>
+                                                    <th>ວັນທີຮັບມອບເງິນ</th>
+                                                    <th>ສະຖານະ</th>
                                                     <th>ເມນູ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $stmt = $conn->query("SELECT * FROM close_payment");
+                                                $stmt = $conn->query("select * from credit_release where cr_status = 1");
                                                 $stmt->execute();
                                                 $users = $stmt->fetchAll();
+
                                                 foreach ($users as $row) {
                                                 ?>
                                                     <tr>
@@ -678,18 +644,34 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                                 <label class="form-check-label" for="customCheckBox2"></label>
                                                             </div>
                                                         </td>
-                                                        <td><?php echo $row['cp_id']; ?></td>
-                                                        <td><?php echo $row['cus_fname']; ?></td>
+                                                        <td><?php echo $row['cr_id']; ?></td>
                                                         <td><?php echo $row['lg_runing_id']; ?></td>
-                                                        <td><?php echo $row['cp_lg_date']; ?></td>
-                                                        <td><?php echo number_format($row['cp_amount_releaseds']); ?> ກີບ</td>
-                                                        <td><?php echo number_format($row['cp_interest']); ?> %</td>
-                                                        <td><?php echo number_format($row['cp_set_month']); ?> ເດືອນ</td>
-                                                        <td><?php echo number_format($row['cp_total_interest']); ?> ກີບ</td>
-                                                        <td><?php echo number_format($row['cp_capital_plus_interest']); ?> ກີບ</td>
-                                                        <td><?php echo $row['cp_date_in']; ?></td>
-                                                        <td><?php echo $row['cp_time_in']; ?></td>
+                                                        <td><?php echo $row['cus_fname']; ?></td>
+                                                        <td><?php echo $row['cr_set_month']; ?> ເດືອນ</td>
+                                                        <td><?php echo number_format($row['cr_ap_mounnt']); ?> LAK</td>
+                                                        <td><?php echo $row['cr_ap_amount_text']; ?></td>
+                                                        <td><?php echo $row['cr_interest']; ?> %</td>
+                                                        <td><?php echo $row['cr_date_in']; ?></td>
+                                                        <td>
+                                                            <?php
+                                                            if ($row['cr_status'] == 1) {
+                                                                echo "
+                                                                <span style='font-size: 16px;' class='badge light badge-warning'>
+                                                                    <i class='fa fa-circle text-warning me-1'></i>
+                                                                    ຜ່ອນຊຳລະ
+                                                                </span>
+                                                                ";
+                                                            } else if ($row['cr_status'] == 2) {
+                                                                echo "
+                                                                <span style='font-size: 16px;' class='badge light badge-danger'>
+                                                                    <i class='fa fa-circle text-danger me-1'></i>
+                                                                    ປິດສັນຍາແລ້ວ
+                                                                </span>
+                                                                ";
+                                                            }
+                                                            ?>
 
+                                                        </td>
                                                         <td>
                                                             <div class="btn-group dropstart mb-1">
                                                                 <div class="btn-link" data-bs-toggle="dropdown">
@@ -707,11 +689,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                                         <p style="margin-top: 5px; margin-bottom: -5px; margin-right: 5px;">ເມນູ</p>
                                                                     </center>
                                                                     <hr>
-                                                                    <!-- <a class="dropdown-item" href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a> -->
-                                                                    <a class="dropdown-item" href="close_payment_doc.php?id=<?php echo $row['cus_id']; ?>">ເອກກະສານປິດສັນຍາ</a>
+                                                                    <a class="dropdown-item" href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a>
                                                                     <hr>
-                                                                    <!-- <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['cp_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
-                                                                    <a data-cp_id="<?= $row['cp_id']; ?>" href="?delete=<?= $row['cp_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a> -->
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -800,7 +779,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
 
         <script>
             $(".delete-btn").click(function(e) {
-                var userId = $(this).data('la_id');
+                var userId = $(this).data('cus_id');
                 e.preventDefault();
                 deleteConfirm(userId);
             })
@@ -819,7 +798,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                     preConfirm: function() {
                         return new Promise(function(resolve) {
                             $.ajax({
-                                    url: 'collateral_select_land.php',
+                                    url: 'customer_select_offer.php',
                                     type: 'GET',
                                     data: 'delete=' + userId,
                                 })
@@ -829,7 +808,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                         text: 'ລົບຂໍ້ມູນສຳເລັດ ກົດ ຕົກລົງເພື່ອດຳເນີນການຕໍ່',
                                         icon: 'success',
                                     }).then(() => {
-                                        document.location.href = 'collateral_select_land.php';
+                                        document.location.href = 'customer_select_offer.php';
                                     })
                                 })
                                 .fail(function() {
