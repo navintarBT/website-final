@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -8,7 +7,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
     // User is not logged in or has incorrect user_status, redirect back to login page
     header("Location: http://localhost/Loan-management-system/login");
     exit();
-}?>
+} ?>
 
 <head>
     <meta charset="utf-8">
@@ -310,9 +309,9 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
 
     <script>
         $(function() {
-        let amount ="";
-        let indexS ="";
-        let dateLine ="";
+            let amount = "";
+            let indexS = "";
+            let dateLine = "";
             //ຟັງຊັ້ນດຶງຊື່ມາສະແດງ
             $(".cus_runing").keyup(function() {
                 var a = $(".cus_runing").val();
@@ -378,7 +377,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                     },
                     function(output) {
                         $(".ca_employee").val(output);
-                        indexS=output
+                        indexS = output
                         console.log(indexS);
                     })
                 $.post("credit_analysis_get_phams.php", {
@@ -436,15 +435,16 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                     function(output) {
                         $(".ca_job").val(output);
                     })
-                    $.post("credit_analysis_get_cus_date_of_loan.php", {
+                $.post("credit_analysis_get_cus_date_of_loan.php", {
                         cus_runing: a
                     },
                     function(output) {
                         $(".cus_date_of_loan").val(output);
-                        dateLine=output
+                        dateLine = output
                         console.log(dateLine);
                     })
-                    $.post("credit_analysis_get_cus_date_of_loans.php", {
+
+                $.post("credit_analysis_get_cus_date_of_loans.php", {
                         cus_runing: a
                     },
                     function(output) {
@@ -452,21 +452,21 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                     })
 
 
-                    $.post("credit_analysis_get_ca_amount_offered.php", {
+                $.post("credit_analysis_get_ca_amount_offered.php", {
                         cus_runing: a
                     },
                     function(output) {
-                        $(".ca_amount_released").val(output);
-                        console.log(amount);
+                        const roundedOutput = Math.round(parseFloat(output));
+                        $(".ca_amount_released").val(roundedOutput);
                     })
             });
 
-            $(".ca_amount_released").keyup(function() {
+            $(".ca_interest").keyup(function() {
                 var a = parseInt($(".ca_amount_released").val());
                 var b = parseInt($(".ca_employee").val());
                 $.post("credit_analysis_get_ca_loan_to_collateral.php", {
-                    ca_amount_released: a,
-                    ca_employee: b
+                        ca_amount_released: a,
+                        ca_employee: b
                     },
                     function(output) {
                         $(".ca_loan_to_collateral").val(output);
@@ -626,7 +626,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
 
 <body>
 
-?>
+    ?>
     <!--*******************
         Preloader start
     ********************-->
@@ -890,7 +890,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                             <span class="nav-text">ໜ້າຫຼັກ</span>
                         </a>
                     </li>
-                    
+
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 24px;" class="bi bi-map-fill"></i>
                             <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</span>
@@ -898,14 +898,14 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="collateral_insert_land.php">ບັນທຶກຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</a></li>
                             <li><a style="font-size: 16px;" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;" class="nav-text">ລາຍງານຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="collateral_select_land.php">ລາຍງານທີ່ດິນ-ສິ່ງປູກສ້າງ</a></li>
-                            <li><a style="font-size: 16px;" href="collateral_select_car.php">ລາຍງານລົດໃຫຍ່-ລົດຈັກ</a></li>
-                            <li><a style="font-size: 16px;" href="collateral_select_other.php">ລາຍງານຫຼັກຊັບອື່ນໆ</a></li>
-                        </ul>
-                    </li>
+                                    <span style="font-size: 16px;" class="nav-text">ລາຍງານຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</span>
+                                </a>
+                                <ul aria-expanded="false">
+                                    <li><a style="font-size: 16px;" href="collateral_select_land.php">ລາຍງານທີ່ດິນ-ສິ່ງປູກສ້າງ</a></li>
+                                    <li><a style="font-size: 16px;" href="collateral_select_car.php">ລາຍງານລົດໃຫຍ່-ລົດຈັກ</a></li>
+                                    <li><a style="font-size: 16px;" href="collateral_select_other.php">ລາຍງານຫຼັກຊັບອື່ນໆ</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -919,7 +919,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 28px;" class="bi bi-people-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="guarantor_insert.php">ບັນທຶກຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</a></li>
@@ -928,7 +928,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 28px;" class="bi bi-card-checklist"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນສັນຍາກູ້ຢຶມ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນສັນຍາກູ້ຢຶມ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="loan_agreement_insert.php">ບັນທຶກຂໍ້ມູນສັນຍາກູ້ຢຶມ</a></li>
@@ -937,17 +937,17 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-box-arrow-right"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="credit_release_insert.php">ບັນທຶກຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</a></li>
                             <li><a style="font-size: 16px;" href="credit_release_select.php">ລາຍງານຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</a></li>
                         </ul>
                     </li>
-                   
+
                 </ul>
                 <div class="copyright">
-                <p><strong>ລະບົບບໍລິຫານສະຖາບັນເງິນກູ້</strong> © 2024 ປະລິນຢາຕີ</p>
+                    <p><strong>ລະບົບບໍລິຫານສະຖາບັນເງິນກູ້</strong> © 2024 ປະລິນຢາຕີ</p>
 
                 </div>
             </div>
@@ -983,12 +983,12 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                                                         <div class="col-xl-12">
                                                             <div class="mb-1 row">
                                                                 <div class="col-xl-3">
-                                                                <label class="col-form-label" for="validationCustom06">ລະຫັດການວິເຄາະ
+                                                                    <label class="col-form-label" for="validationCustom06">ລະຫັດການວິເຄາະ
                                                                         <span class="text-danger">*</span>
                                                                     </label>
                                                                     <div class="input-group">
                                                                         <span class="input-group-text" id="inputGroupPrepend">#</span>
-                                                                        <input style="background: #e8f0fe;" type="text" class="form-control ca_runing_id" id="validationCustom01" value="<?php echo $number ;?>" required="" name="ca_runing_id" readonly>
+                                                                        <input style="background: #e8f0fe;" type="text" class="form-control ca_runing_id" id="validationCustom01" value="<?php echo $number; ?>" required="" name="ca_runing_id" readonly>
                                                                     </div>
                                                                     <label class="col-form-label" for="validationCustom06">ລະຫັດລູກຄ້າ
                                                                         <span class="text-danger">*</span>
@@ -999,7 +999,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                                                                     </div>
 
                                                                     <label class="col-form-label" for="validationCustom06">ຊື່ ແລະ ນາມສະກຸນ
-                                                                        <span  class="text-danger">*</span>
+                                                                        <span class="text-danger">*</span>
                                                                     </label>
                                                                     <div class="input-group">
                                                                         <span class="input-group-text" id="inputGroupPrepend">#</span>
@@ -1087,7 +1087,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                                                                         <span class="text-danger">*</span>
                                                                     </label>
                                                                     <div class="input-group">
-                                                                        <span  class="input-group-text" id="inputGroupPrepend">#</span>
+                                                                        <span class="input-group-text" id="inputGroupPrepend">#</span>
                                                                         <input style="background: #e8f0fe;" type="text" class="form-control ca_goal" id="validationCustom01" name="ca_goal" placeholder="ເປົ້າໝາຍໃນການກູ້ຢຶມເງິນເພື່ອ..." required="" readonly>
                                                                     </div>
                                                                     <label class="col-form-label" for="validationCustom06">ຮູບແບບໃນການຊຳລະ
@@ -1100,7 +1100,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
 
                                                                 </div>
                                                                 <div class="col-xl-3">
-                                                                <label class="col-form-label" for="validationCustom06">ຫຼັກຊັບຄຳປະກັນ
+                                                                    <label class="col-form-label" for="validationCustom06">ຫຼັກຊັບຄຳປະກັນ
                                                                         <span class="text-danger">*</span>
                                                                     </label>
                                                                     <div class="input-group">

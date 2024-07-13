@@ -94,7 +94,6 @@ if ($a <> 0) { // ຖ້າມີຂໍ້ມູນ ໃຫ້ທຳງານຕ�
     $_SESSION['user_satus'] = $rows['user_satus']; // ວາງຕົວປ່ຽນ fname ເກັບເອົາຊື່
     $_SESSION['user_image'] = $rows['user_image']; // ວາງຕົວປ່ຽນ fname ເກັບເອົາຊື່
     $_SESSION['checked'] = 1; // ວາງຕົວປ່ຽນ checked ເກັບກຳເອົາເລກ 1 ເພື່ອໃຊ້ໃນການຢືນຢັນ 
-
     echo "
                 <script>
                     let timerInterval
@@ -168,7 +167,7 @@ if ($a <> 0) { // ຖ້າມີຂໍ້ມູນ ໃຫ້ທຳງານຕ�
                         } ,1500);
                 </script>
             ";
-}elseif($rows['user_satus'] == "ແອັດມິນ") { // ຖ້າຫາກສະຖານະຂອງຜຸ້ລ໋ອກອິນ ແມ່ນ ຜູ້ບໍລິຫານ
+    }else if($rows['user_satus'] == "ແອັດມິນ") { // ຖ້າຫາກສະຖານະຂອງຜຸ້ລ໋ອກອິນ ແມ່ນ ຜູ້ບໍລິຫານ
     $_SESSION['user_id'] = $rows['user_id']; // ວາງຕົວປ່ຽນ user_id ເກັບເອົາລະຫັດຜູ້ນຳໃຊ້
     $_SESSION['user_flname'] = $rows['user_flname']; // ວາງຕົວປ່ຽນ fname ເກັບເອົາຊື່
     $_SESSION['user_satus'] = $rows['user_satus']; // ວາງຕົວປ່ຽນ fname ເກັບເອົາຊື່
@@ -208,32 +207,31 @@ if ($a <> 0) { // ຖ້າມີຂໍ້ມູນ ໃຫ້ທຳງານຕ�
                         } ,1500);
                 </script>
             ";
+    } else {
+        // Unexpected user status, handle accordingly
+        echo "
+            <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'ຖືກຜິດພາດ!',
+                text: 'ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ...!',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect or perform any action after clicking OK
+                    // Example: window.location.href = 'login.php';
+                }
+            });
+            </script>";
+    }
 } else {
-    // Unexpected user status, handle accordingly
-    echo "
-        <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'ຖືກຜິດພາດ!',
-            text: 'ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ...!!!!',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Redirect or perform any action after clicking OK
-                // Example: window.location.href = 'login.php';
-            }
-        });
-        </script>";
-}
-} else {
-// No matching username and password
 echo "
     <script>
     Swal.fire({
         icon: 'error',
         title: 'ຖືກຜິດພາດ!',
-        text: 'ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ...!!!!',
+        text: 'ຊື່ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ...!',
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'OK'
     }).then((result) => {

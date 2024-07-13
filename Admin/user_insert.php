@@ -23,7 +23,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
     <meta property="og:description" content="Dompet : Payment Admin Template">
     <meta property="og:image" content="https://dompet.dexignlab.com/xhtml/social-image.png">
     <meta name="format-detection" content="telephone=no">
-    <title>ແບບຟອມບັນທຶກຂໍ້ມູນຜູ້ນຳໃຊ້</title>
+    <title>ແບບຟອມບັນທຶກຂໍ້ມູນພະນັກງານເຄົາເຕີ</title>
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <link href="vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -493,8 +493,6 @@ if ($row == "") {
             }
         }
     } //isset
-
-
     ?>
 </head>
 
@@ -562,7 +560,7 @@ if ($row == "") {
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
                             <div class="dashboard_bar">
-                                ຜູ້ນຳໃຊ້
+                                ບັນທຶກຂໍ້ມູນຜູ້ນຳໃຊ້
                             </div>
                         </div>
                         <ul class="navbar-nav header-right">
@@ -864,43 +862,47 @@ if ($row == "") {
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i style="font-size: 30px;" class="bi bi-person-lines-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານ</span>
-                        </a>
-                        <ul aria-expanded="false">
+                        <i style="font-size: 30px;" class="bi bi-person-lines-fill"></i>
+                        <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານ</span>
+                    </a>
+                    <ul aria-expanded="false">
                         <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານເຄົາເຕິ້</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານເຄົາເຕີ້</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານການເງິນ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານການເງິນ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານການເງິນ</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານສິນເຊື່ຶອ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານສິນເຊື່ອ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານສິນເຊື່ຶ</a></li>
-                        </ul>
-                    </li>
-                        </ul>
-                    </li>
+                                <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານເຄົາເຕິ້</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li><a style="font-size: 16px;" href="#">ບັນທຶກຂໍ້ມູນພະນັກງານເຄົາເຕິ້</a></li>
+                                <li><a style="font-size: 16px;" href="#">ລາຍງານຂໍ້ມູນພະນັກງານເຄົາເຕິ້</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul aria-expanded="false">
+                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານສິນເຊື່ອ</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li><a style="font-size: 16px;" href="#">ບັນທຶກຂໍ້ມູນພະນັກງານສິນເຊື່ອ</a></li>
+                                <li><a style="font-size: 16px;" href="#">ລາຍງານຂໍ້ມູນພະນັກງານສິນເຊື່ອ</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul aria-expanded="false">
+                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານການເງິນ</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li><a style="font-size: 16px;" href="#">ບັນທຶກຂໍ້ມູນພະນັກງານການເງິນ</a></li>
+                                <li><a style="font-size: 16px;" href="#">ລາຍງານຂໍ້ມູນພະນັກງານການເງິນ</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i style="font-size: 35px;" class="bi bi-person-fill"></i>
                             <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນອຳນວຍການ</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນອຳນວຍການ</a></li>
-                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນອຳນວຍການ</a></li>
+                            <li><a style="font-size: 16px;" href="#">ບັນທຶກຂໍ້ມູນອຳນວຍການ</a></li>
+                            <li><a style="font-size: 16px;" href="#">ລາຍງານຂໍ້ມູນອຳນວຍການ</a></li>
                         </ul>
                     </li>
                     

@@ -387,7 +387,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ເຄົາເ�
 
         })
     </script>
-
     <?php
     require_once "config/conect_nal.php";
     $query = "SELECT count(cus_id) FROM customers ORDER BY cus_id DESC LIMIT 1; ";
