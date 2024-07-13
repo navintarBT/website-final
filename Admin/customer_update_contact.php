@@ -446,8 +446,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
             $doc_file = (isset($_POST['doc_file']) ? $_POST['doc_file'] : '');
 
             $typefile = strrchr($_FILES['doc_file']['name'], ".");
-
-
             if ($typefile == '.pdf') {
 
                 $newname = 'doc_' . $numrand . $date1 . $typefile;
