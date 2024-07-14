@@ -517,84 +517,78 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table id="example" class="display" style="min-width: 845px">
-                                            <thead>
+                                    <table id="example" class="display" style="min-width: 845px">
+                                        <thead>
+                                            <tr>
+                                                <th>ລະຫັດປິດສັນຍາ</th>
+                                                <th>ຊື່ ແລະ ນາມສະກຸນ</th>
+                                                <th>ເລກທີ່ສັນຍາ</th>
+                                                <th style="width: 100px;">ລົງວັນທີ</th>
+                                                <th>ເງິນຕົ້ນ</th>
+                                                <th>ອັດຕາດອກເບ້ຍ</th>
+                                                <th>ໄລຍະເວລາ</th>
+                                                <th>ດອກເບ້ຍ</th>
+                                                <th>ເງິນຕົ້ນ+ດອກເບ້ຍ</th>
+                                                <th>ວັນທີ່ປິດສັນຍາ</th>
+                                                <th>ສະຖານະ</th>
+                                                <th>ເວລາ</th>
+                                                <th>ເມນູ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $stmt = $conn->query("SELECT * FROM close_payment");
+                                            $stmt->execute();
+                                            $users = $stmt->fetchAll();
+                                            foreach ($users as $row) {
+                                            ?>
                                                 <tr>
-                                                    <th>
-                                                        <div class="form-check custom-checkbox ms-2">
-                                                            <input style="cursor: pointer;" type="checkbox" class="form-check-input" id="checkAll" required="">
-                                                            <label class="form-check-label" for="checkAll"></label>
-                                                        </div>
-                                                    </th>
-                                                    <th>ລະຫັດປິດສັນຍາ</th>
-                                                    <th>ຊື່ ແລະ ນາມສະກຸນ</th>
-                                                    <th>ເລກທີ່ສັນຍາ</th>
-                                                    <th>ລົງວັນທີ</th>
-                                                    <th>ເງິນຕົ້ນ</th>
-                                                    <th>ອັດຕາດອກເບ້ຍ</th>
-                                                    <th>ໄລຍະເວລາ</th>
-                                                    <th>ດອກເບ້ຍ</th>
-                                                    <th>ເງິນຕົ້ນ+ດອກເບ້ຍ</th>
-                                                    <th>ວັນທີ່ປິດສັນຍາ</th>
-                                                    <th>ເວລາ</th>
-                                                    <th>ເມນູ</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $stmt = $conn->query("SELECT * FROM close_payment");
-                                                $stmt->execute();
-                                                $users = $stmt->fetchAll();
-                                                foreach ($users as $row) {
-                                                ?>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="form-check custom-checkbox ms-2">
-                                                                <input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
-                                                                <label class="form-check-label" for="customCheckBox2"></label>
+                                                    <td><?php echo $row['cp_id']; ?></td>
+                                                    <td><?php echo $row['cus_fname']; ?></td>
+                                                    <td><?php echo $row['lg_runing_id']; ?></td>
+                                                    <td><?php echo $row['cp_lg_date']; ?></td>
+                                                    <td><?php echo number_format($row['cp_amount_releaseds']); ?> ກີບ</td>
+                                                    <td><?php echo number_format($row['cp_interest']); ?> %</td>
+                                                    <td><?php echo number_format($row['cp_set_month']); ?> ເດືອນ</td>
+                                                    <td><?php echo number_format($row['cp_total_interest']); ?> ກີບ</td>
+                                                    <td><?php echo number_format($row['cp_capital_plus_interest']); ?> ກີບ</td>
+                                                    <td><?php echo $row['cp_date_in']; ?></td>
+                                                    <td>
+                                                        <span style='font-size: 16px;' class='badge light badge-success'>
+                                                            <i class='fa fa-circle text-success me-1'></i>
+                                                            ປິດສັນຍາ
+                                                        </span>
+                                                    </td>
+                                                    <td><?php echo $row['cp_time_in']; ?></td>
+                                                    <td>
+                                                        <div class="btn-group dropstart mb-1">
+                                                            <div class="btn-link" data-bs-toggle="dropdown">
+                                                                <svg width="24px" height="24px" viewbox="0 0 24 24" version="1.1">
+                                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                        <rect x="0" y="0" width="24" height="24"></rect>
+                                                                        <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                                                                        <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                                                        <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                                                                    </g>
+                                                                </svg>
                                                             </div>
-                                                        </td>
-                                                        <td><?php echo $row['cp_id']; ?></td>
-                                                        <td><?php echo $row['cus_fname']; ?></td>
-                                                        <td><?php echo $row['lg_runing_id']; ?></td>
-                                                        <td><?php echo $row['cp_lg_date']; ?></td>
-                                                        <td><?php echo number_format($row['cp_amount_releaseds']); ?> ກີບ</td>
-                                                        <td><?php echo number_format($row['cp_interest']); ?> %</td>
-                                                        <td><?php echo number_format($row['cp_set_month']); ?> ເດືອນ</td>
-                                                        <td><?php echo number_format($row['cp_total_interest']); ?> ກີບ</td>
-                                                        <td><?php echo number_format($row['cp_capital_plus_interest']); ?> ກີບ</td>
-                                                        <td><?php echo $row['cp_date_in']; ?></td>
-                                                        <td><?php echo $row['cp_time_in']; ?></td>
-
-                                                        <td>
-                                                            <div class="btn-group dropstart mb-1">
-                                                                <div class="btn-link" data-bs-toggle="dropdown">
-                                                                    <svg width="24px" height="24px" viewbox="0 0 24 24" version="1.1">
-                                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                                            <circle fill="#000000" cx="5" cy="12" r="2"></circle>
-                                                                            <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                                                                            <circle fill="#000000" cx="19" cy="12" r="2"></circle>
-                                                                        </g>
-                                                                    </svg>
-                                                                </div>
-                                                                <div style="background: #FDFEFE;" class="dropdown-menu">
-                                                                    <center>
-                                                                        <p style="margin-top: 5px; margin-bottom: -5px; margin-right: 5px;">ເມນູ</p>
-                                                                    </center>
-                                                                    <hr>
-                                                                    <!-- <a class="dropdown-item" href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a> -->
-                                                                    <a class="dropdown-item" href="close_payment_doc.php?id=<?php echo $row['cp_id']; ?>">ເອກກະສານປິດສັນຍາ</a>
-                                                                    <hr>
-                                                                    <!-- <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['cp_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
+                                                            <div style="background: #FDFEFE;" class="dropdown-menu">
+                                                                <center>
+                                                                    <p style="margin-top: 5px; margin-bottom: -5px; margin-right: 5px;">ເມນູ</p>
+                                                                </center>
+                                                                <hr>
+                                                                <!-- <a class="dropdown-item" href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a> -->
+                                                                <a class="dropdown-item" href="close_payment_doc.php?id=<?php echo $row['cus_id']; ?>">ເອກກະສານປິດສັນຍາ</a>
+                                                                <hr>
+                                                                <!-- <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['cp_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
                                                                     <a data-cp_id="<?= $row['cp_id']; ?>" href="?delete=<?= $row['cp_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a> -->
-                                                                </div>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                <?php } ?>
-                                            </tbody>
-                                        </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
                                     </div>
                                 </div>
                             </div>

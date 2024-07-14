@@ -597,8 +597,6 @@ echo $number;
                                                                 <a class="dropdown-item" href="collateral_more_car.php?id=<?php echo $row['car_id']; ?>">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                 <a class="dropdown-item" href="collateral_docs_car/<?php echo $row['car_doc_file']; ?>">ໃບລາຍງານການກົດສອບຊັບສົມບັດ</a>
                                                                 <hr>
-                                                                <a class="dropdown-item button_edit" href="collateral_update_car.php?id=<?php echo $row['car_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
-                                                                <a data-car_id="<?= $row['car_id']; ?>" href="?delete=<?= $row['car_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
                                                             </div>
                                                         </div>
                                                     </td>
