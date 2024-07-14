@@ -3,11 +3,13 @@
 <html lang="en">
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງິນ") {
-    // User is not logged in or has incorrect user status, redirect back to login 	page
+if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ການເງິນ") {
+} else {
+    // User is not logged in or has incorrect user_status, redirect back to login page
     header("Location: http://localhost/Loan-management-system/login");
     exit();
 }?>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -224,43 +226,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
                     function(output) {
                         $(".cus_id").val(output);
                     })
-                // $.post("credit_release_get_money_circle.php", {
-                //         cus_runing: a
-                //     },
-                //     function(output) {
-                //         $(".cr_money_circle").val(output);
-                //     })
-                // $.post("credit_release_get_money_circle_format.php", {
-                //         cus_runing: a
-                //     },
-                //     function(output) {
-                //         $(".cr_money_circle_format").val(output);
-                //     })
-                // $.post("credit_release_get_interest.php", {
-                //         cus_runing: a
-                //     },
-                //     function(output) {
-                //         $(".cr_interest").val(output);
-                //     })
-                // $.post("credit_release_get_release_date.php", {
-                //         cus_runing: a
-                //     },
-                //     function(output) {
-                //         $(".cr_release_date").val(output);
-                //     })
-                // $.post("credit_release_get_loan_id.php", {
-                //         cus_runing: a
-                //     },
-                //     function(output) {
-                //         $(".cr_loan_id").val(output);
-                //     })
-                // $.post("credit_release_get_set_mouth.php", {
-                //         cus_runing: a
-                //     },
-                //     function(output) {
-                //         $(".cr_set_mouth").val(output);
-                //     })
-
             });
 
 
@@ -287,11 +252,10 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_satus'] !== "ການເງ
     if (empty($lastid)) {
         $number = "PM-00000001";
     } else {
-        $idd = (int)str_replace("PM-", "", $lastid);
-        $id = str_pad($idd + 1, 8, '0', STR_PAD_LEFT);
+        $idd = str_replace("PM-", "", $lastid);
+        $id = str_pad($idd + 1, 8, 0, STR_PAD_LEFT);
         $number = 'PM-' . $id;
     }
-    
 
     require_once "config/db_s_and_k_project.php";
 
