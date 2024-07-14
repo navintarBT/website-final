@@ -642,8 +642,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                                     <!-- <a class="dropdown-item" href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a> -->
                                                                     <a class="dropdown-item" href="close_payment_doc.php?id=<?php echo $row['cp_id']; ?>">ເອກກະສານປິດສັນຍາ</a>
                                                                     <hr>
-                                                                    <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['cp_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
-                                                                    <a data-cp_id="<?= $row['cp_id']; ?>" href="?delete=<?= $row['cp_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
                                                                 </div>
                                                             </div>
                                                         </td>

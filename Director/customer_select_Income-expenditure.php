@@ -895,11 +895,7 @@ if ($lg_amount_releaseds) {
                                                                     <a class="dropdown-item"
                                                                         href="customer_check_collateral.php?id=<?php echo $row['cus_id']; ?>">ໃບລາຍງານການກົດສອບຊັບສົມບັດ</a>
                                                                     <hr>
-                                                                    <a class="dropdown-item button_edit"
-                                                                        href="customer_update_Income-expenditure.php?id=<?php echo $row['cus_id']; ?> ">ແກ້ໄຂຂໍ້ມູນ</a>
-                                                                    <a data-cus_id="<?= $row['cus_id']; ?>"
-                                                                        href="?delete=<?= $row['cus_id']; ?>"
-                                                                        class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </td>

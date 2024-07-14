@@ -593,7 +593,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                     <th>ດອກເບ້ຍທີ່ຍັງເຫຼືອ</th>
                                                     <th>ໜີ່ສິນຍັງເຫຼືອທັງໝົດ</th>
                                                     <th>ສະຖານະ</th>
-                                                    <th>ເມນູ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -638,30 +637,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                             ?>
 
                                                         </td>
-                                                        <td>
-                                                            <div class="btn-group dropstart mb-1">
-                                                                <div class="btn-link" data-bs-toggle="dropdown">
-                                                                    <svg width="24px" height="24px" viewbox="0 0 24 24" version="1.1">
-                                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                                            <circle fill="#000000" cx="5" cy="12" r="2"></circle>
-                                                                            <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                                                                            <circle fill="#000000" cx="19" cy="12" r="2"></circle>
-                                                                        </g>
-                                                                    </svg>
-                                                                </div>
-                                                                <div style="background: #FDFEFE;" class="dropdown-menu">
-                                                                    <center>
-                                                                        <p style="margin-top: 5px; margin-bottom: -5px; margin-right: 5px;">ເມນູ</p>
-                                                                    </center>
-                                                                    <hr>
-                                                                    <a class="dropdown-item" href="#">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
-                                                                    <hr>
-                                                                    <a class="dropdown-item button_edit" href="credit_analysis_update.php?id=<?php echo $row['dt_id']; ?> ">ແກ້ໄຂຂໍ້ມູນ</a>
-                                                                    <a data-dt_id="<?= $row['dt_id']; ?>" href="?delete=<?= $row['dt_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
+                                                       
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>

@@ -796,11 +796,7 @@ if ($lg_amount_releaseds) {
                                                                 <a class="dropdown-item"
                                                                     href="docs/<?php echo $row['cus_doc']; ?>">ເບິ່ງເອກກະສານຂໍ້ກູ້ຢຶມເງິນ</a>
                                                                 <hr>
-                                                                <a class="dropdown-item button_edit"
-                                                                    href="customer_update_offer.php?id=<?php echo $row['cus_id']; ?> ">ແກ້ໄຂຂໍ້ມູນ</a>
-                                                                <a data-cus_id="<?= $row['cus_id']; ?>"
-                                                                    href="?delete=<?= $row['cus_id']; ?>"
-                                                                    class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
+                                                                
                                                             </div>
                                                         </div>
                                                     </td>

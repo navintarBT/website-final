@@ -753,11 +753,7 @@ if (isset ($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ
                                                                 <a class="dropdown-item"
                                                                     href="collateral_other_docs/<?php echo $row['ot_doc_file']; ?>">ໃບລາຍງານການກົດສອບຊັບສົມບັດ</a>
                                                                 <hr>
-                                                                <a class="dropdown-item button_edit"
-                                                                    href="collateral_update_other.php?id=<?php echo $row['ot_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
-                                                                <a data-ot_id="<?= $row['ot_id']; ?>"
-                                                                    href="?delete=<?= $row['ot_id']; ?>"
-                                                                    class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
+                                                                
                                                             </div>
                                                         </div>
                                                     </td>
