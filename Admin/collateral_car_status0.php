@@ -453,7 +453,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                             <li><a style="font-size: 16px;" href="debt_select.php">ລາຍງານຂໍ້ມູນໜີ້ສິນ</a></li>
                         </ul>
                     </li>
-                   
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-box-arrow-left"></i>
                             <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການຈ່າຍຄ່າງວດ</span>
@@ -528,14 +527,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ແອັດມ�
                 </div>
             </div>
         </div>
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
-
-        <!-- Modal -->
-        <!--**********************************
-            Content body start
-        ***********************************-->
         <div class="content-body ">
             <div class="container-fluid">
 
