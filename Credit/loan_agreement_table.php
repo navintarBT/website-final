@@ -1003,7 +1003,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                             $stmt = $conn->query("SELECT *
                             FROM customers c
                             JOIN loan_agreement l ON c.cus_id = l.cus_id
-                            JOIN credit_release cr ON c.cus_id = cr.cus_id");
+                            JOIN credit_release cr ON c.cus_id = cr.cus_id where c.cus_id = '$id' ");
                             $stmt->execute();
                             $data = $stmt->fetch();
                         }
