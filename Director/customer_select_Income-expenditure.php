@@ -889,13 +889,17 @@ if ($lg_amount_releaseds) {
                                                                     </center>
                                                                     <hr>
                                                                     <a class="dropdown-item"
-                                                                        href="#">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
+                                                                        href="customer_profile.php?id=<?php echo $row['cus_id']; ?>">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                     <a class="dropdown-item"
                                                                         href="docs/<?php echo $row['cus_doc']; ?>">ເບິ່ງເອກກະສານຂໍ້ກູ້ຢຶມເງິນ</a>
                                                                     <a class="dropdown-item"
                                                                         href="customer_check_collateral.php?id=<?php echo $row['cus_id']; ?>">ໃບລາຍງານການກົດສອບຊັບສົມບັດ</a>
                                                                     <hr>
-                                                                    
+                                                                    <a class="dropdown-item button_edit"
+                                                                        href="customer_update_Income-expenditure.php?id=<?php echo $row['cus_id']; ?> ">ແກ້ໄຂຂໍ້ມູນ</a>
+                                                                    <a data-cus_id="<?= $row['cus_id']; ?>"
+                                                                        href="?delete=<?= $row['cus_id']; ?>"
+                                                                        class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -1021,7 +1025,7 @@ if ($lg_amount_releaseds) {
                                                                     </center>
                                                                     <hr>
                                                                     <a class="dropdown-item"
-                                                                        href="#">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
+                                                                        href="customer_profile.php?id=<?php echo $row['cus_id']; ?>">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                     <a class="dropdown-item"
                                                                         href="docs/<?php echo $row['cus_doc']; ?>">ເບິ່ງເອກກະສານຂໍ້ກູ້ຢຶມເງິນ</a>
                                                                     <hr>

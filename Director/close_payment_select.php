@@ -359,9 +359,11 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 28px;" class="bi bi-person-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ລາຍຂໍ້ມູນລູກຄ້າ</span>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນລູກຄ້າ</span>
                         </a>
                         <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="customer_insert.php">ບັນທຶກຂໍ້ມູນລູກຄ້າ</a></li>
+                            <li><a style="font-size: 16px;"class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false" href="javascript:void()" >ລາຍງານຂໍ້ມູນລູກຄ້າ</a><ul aria-expanded="false">
                             <li><a style="font-size: 16px;" href="customer_select_history.php">ລາຍງານຂໍ້ມູນບຸກຄົນ</a></li>
                             <li><a style="font-size: 16px;" href="customer_select_offer.php">ລາຍງານຂໍ້ມູນສະເໜີຂໍກູູ້ຢືມ</a></li>
                             <li><a style="font-size: 16px;" href="customer_select_Identification_card.php">ລາຍງານຂໍ້ມູນບັດປະຈຳຕົວ</a></li>
@@ -371,72 +373,139 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                             <li><a style="font-size: 16px;" href="customer_select_Income-expenditure.php">ລາຍງານຂໍ້ມູນ ລາຍຮັບ - ລາຈ່າຍ</a>
                         </ul>
                     </li>
+                        </ul>
+                        
+                    </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 24px;" class="bi bi-map-fill"></i>
-                            <span style="font-size: 16px;" class="nav-text">ລາຍງານຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</span>
-
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</span>
                         </a>
                         <ul aria-expanded="false">
-                         <li><a style="font-size: 16px;" href="collateral_select_land.php">ລາຍງານທີ່ດິນ-ສິ່ງປູກສ້າງ</a></li>
+                            <li><a style="font-size: 16px;" href="collateral_insert_land.php">ບັນທຶກຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</a></li>
+                            <li><a style="font-size: 16px;" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <span style="font-size: 16px;" class="nav-text">ລາຍງານຂໍ້ມູນຫຼັກຊັບຄໍ້າປະກັນ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="collateral_select_land.php">ລາຍງານທີ່ດິນ-ສິ່ງປູກສ້າງ</a></li>
                             <li><a style="font-size: 16px;" href="collateral_select_car.php">ລາຍງານລົດໃຫຍ່-ລົດຈັກ</a></li>
                             <li><a style="font-size: 16px;" href="collateral_select_other.php">ລາຍງານຫຼັກຊັບອື່ນໆ</a></li>
                         </ul>
                     </li>
-                    <li><a  href="credit_analysis_select.php"aria-expanded="false">
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-041-graph"></i>
-                            <span style="font-size: 16px;" class="nav-text">ລາຍງານການວິເຄາະສິນເຊື່ອ</span>
+                            <span style="font-size: 16px;" class="nav-text">ຈັດການຂໍ້ມູນການວິເຄາະສິນເຊື່ອ</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="credit_analysis_insert.php">ບັນທຶກຂໍ້ມູນການວິເຄາະສິນເຊື່ອ</a></li>
+                            <li><a style="font-size: 16px;" href="credit_analysis_select.php">ລາຍງານການວິເຄາະສິນເຊື່ອ</a></li>
+                        </ul>
                     </li>
-                    <li><a href="guarantor_select.php" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 28px;" class="bi bi-people-fill"></i>
-                            <span style="font-size: 16px;" class="nav-text">ລາຍງານຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</span>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="guarantor_insert.php">ບັນທຶກຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</a></li>
+                            <li><a style="font-size: 16px;" href="guarantor_select.php">ລາຍງານຂໍ້ມູນຜູ້ຄ້ຳປະກັນ</a></li>
+                        </ul>
                     </li>
-                    <li><a href="loan_agreement_select.php" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 28px;" class="bi bi-card-checklist"></i>
-                            <span style="font-size: 16px;" class="nav-text">ລາຍງານຂໍ້ມຸນສັນຍາກູ້ຢຶມ</span>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນສັນຍາກູ້ຢຶມ</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="loan_agreement_insert.php">ບັນທຶກຂໍ້ມູນສັນຍາກູ້ຢຶມ</a></li>
+                            <li><a style="font-size: 16px;" href="loan_agreement_select.php">ລາຍງານຂໍ້ມຸນສັນຍາກູ້ຢຶມ</a></li>
+                        </ul>
                     </li>
-                    <li><a href="credit_release_select.php" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-box-arrow-right"></i>
-                            <span style="font-size: 16px;" class="nav-text">ລາຍງານຂໍ້ມູນປ່ອຍສິນເຊື່ອ</span>
-                            </a>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="credit_release_insert.php">ບັນທຶກຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</a></li>
+                            <li><a style="font-size: 16px;" href="credit_release_select.php">ລາຍງານຂໍ້ມູນການປ່ອຍສິນເຊື່ອ</a></li>
+                        </ul>
                     </li>
-                    <li><a  class="ai-icon" aria-expanded="false"href="debt_select.php">
+                    <li><a class="has-arrow ai-icon" class="ai-icon" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-cash-stack"></i>
-                            <span style="font-size: 16px;"class="nav-text">ລາຍງານຂໍ້ມູນໜີ້ສິນ</span>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນໜີ້ສິນ</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="payment_insert_debt.php">ບັນທຶກຂໍ້ມູນໜີ້ສິນ</a></li>
+                            <li><a style="font-size: 16px;" href="debt_select.php">ລາຍງານຂໍ້ມູນໜີ້ສິນ</a></li>
+                        </ul>
                     </li>
-                    <li><a href="payment_select.php" aria-expanded="false">
+                   
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-box-arrow-left"></i>
-                            <span style="font-size: 16px;"class="nav-text">ລາຍງານຂໍ້ມູນການຈ່າຍຄ່າງວດ</span>
-
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການຈ່າຍຄ່າງວດ</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="payment_insert.php">ບັນທຶກຂໍ້ມູນການຈ່າຍຄ່າງວດ</a></li>
+                            <li><a style="font-size: 16px;" href="payment_select.php">ລາຍງານຂໍ້ມູນການຈ່າຍຄ່າງວດ</a></li>
+                        </ul>
                     </li>
-                    <li><a href="close_payment_select.php" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-credit-card-2-front-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ລາຍງານຂໍ້ມູນການປິດສັນຍາ</span>
-
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນການປິດສັນຍາ</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="close_payment_insert.php">ບັນທຶກຂໍ້ມູນການປິດສັນຍາ</a></li>
+                            <li><a style="font-size: 16px;" href="close_payment_select.php">ລາຍງານຂໍ້ມູນການປິດສັນຍາ</a></li>
+                        </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i style="font-size: 30px;" class="bi bi-person-lines-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ລາຍງານຂໍ້ມູນພະນັກງານ</span>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານ</span>
                         </a>
                         <ul aria-expanded="false">
-                        <li><a style="font-size: 16px;" href="user_select_counter.php">ລາຍງານຂໍ້ມູນພະນັກງານເຄົາເຕີ້</a></li>
-                        <li><a style="font-size: 16px;" href="user_select_finance.php">ລາຍງານຂໍ້ມູນພະນັກງານການເງິນ</a></li>
-                        <li><a style="font-size: 16px;" href="user_select_credit.php">ລາຍງານຂໍ້ມູນພະນັກງານສິນເຊື່ອ</a></li>
+                        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານເຄົາເຕິ້</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານ</a></li>
+                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານເຄົາເຕີ້</a></li>
                         </ul>
                     </li>
-
-
-                    
-                    
-                    <li><a aria-expanded="false" href="user_select.php">
-                            <i style="font-size: 30px;" class="bi bi-person-bounding-box"></i>
-                            <span style="font-size: 16px;"class="nav-text">ລາຍງານຂໍ້ມູນຜູ້ນຳໃຊ້</span>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານການເງິນ</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານການເງິນ</a></li>
+                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານການເງິນ</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນພະນັກງານສິນເຊື່ຶອ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນພະນັກງານສິນເຊື່ອ</a></li>
+                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນພະນັກງານສິນເຊື່ຶ</a></li>
+                        </ul>
+                    </li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i style="font-size: 35px;" class="bi bi-person-fill"></i>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນອຳນວຍການ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນອຳນວຍການ</a></li>
+                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນອຳນວຍການ</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i style="font-size: 30px;" class="bi bi-person-bounding-box"></i>
+                            <span style="font-size: 16px;"class="nav-text">ຈັດການຂໍ້ມູນຜູ້ນຳໃຊ້</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="user_insert.php">ບັນທຶກຂໍ້ມູນຜູ້ນຳໃຊ້</a></li>
+                            <li><a style="font-size: 16px;" href="user_select.php">ລາຍງານຂໍ້ມູນຜູ້ນຳໃຊ້</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <div class="copyright">
@@ -641,6 +710,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                                     <!-- <a class="dropdown-item" href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a> -->
                                                                     <a class="dropdown-item" href="close_payment_doc.php?id=<?php echo $row['cus_id']; ?>">ເອກກະສານປິດສັນຍາ</a>
                                                                     <hr>
+                                                                    <!-- <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['cp_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
+                                                                    <a data-cp_id="<?= $row['cp_id']; ?>" href="?delete=<?= $row['cp_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a> -->
                                                                 </div>
                                                             </div>
                                                         </td>

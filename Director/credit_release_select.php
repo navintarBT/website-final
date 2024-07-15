@@ -825,7 +825,11 @@ if ($lg_amount_releaseds) {
                                                                 <a class="dropdown-item"
                                                                     href="credit_release_doc.php?id=<?php echo $row['cr_id']; ?>">ເອກກະສານປ່ອຍສິນເຊື່ອ</a>
                                                                 <hr>
-                                                                
+                                                                <a class="dropdown-item button_edit"
+                                                                    href="customer_update_offer.php?id=<?php echo $row['cr_id']; ?> ">ແກ້ໄຂຂໍ້ມູນ</a>
+                                                                <a data-cr_id="<?= $row['cr_id']; ?>"
+                                                                    href="?delete=<?= $row['cr_id']; ?>"
+                                                                    class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
                                                             </div>
                                                         </div>
                                                     </td>

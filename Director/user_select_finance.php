@@ -683,8 +683,10 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                                         <p style="margin-top: 5px; margin-bottom: -5px; margin-right: 5px;">ເມນູ</p>
                                                                     </center>
                                                                     <hr>
-                                                                    <a class="dropdown-item" href="#">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
+                                                                    <a class="dropdown-item" href="user_profile.php?id=<?php echo $row['user_id']; ?>">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                     <hr>
+                                                                    <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['user_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
+                                                                    <a data-user_id="<?= $row['user_id']; ?>" href="?delete=<?= $row['user_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
                                                                 </div>
                                                             </div>
                                                         </td>

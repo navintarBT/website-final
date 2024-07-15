@@ -428,16 +428,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                     </li>
 
 
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i style="font-size: 30px;" class="bi bi-check-circle-fill"></i>
-                            <span style="font-size: 16px;"class="nav-text">ລາຍງານຂໍ້ມູນການຢືນຢັນ</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a style="font-size: 16px;" href="customer_select_history.php">ລາຍງານການຢືນຢັນຂອງເຄົາເຕີ</a></li>
-                            <li><a style="font-size: 16px;" href="credit_release_select.php">ລາຍງານການຢືນຢັນຂອງສິນເຊື່ອ</a></li>
-                            <li><a style="font-size: 16px;" href="payment_select_counter.php">ລາຍງານການຢືນຢັນຂອງການເງິນ</a></li>
-                        </ul>
-                    </li>
+                    
                     
                     <li><a aria-expanded="false" href="user_select.php">
                             <i style="font-size: 30px;" class="bi bi-person-bounding-box"></i>
@@ -683,8 +674,10 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                                         <p style="margin-top: 5px; margin-bottom: -5px; margin-right: 5px;">ເມນູ</p>
                                                                     </center>
                                                                     <hr>
-                                                                    <a class="dropdown-item" href="#">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
+                                                                    <a class="dropdown-item" href="user_profile.php?id=<?php echo $row['user_id']; ?>">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                     <hr>
+                                                                    <a class="dropdown-item button_edit" href="collateral_update_land.php?id=<?php echo $row['user_id']; ?>">ແກ້ໄຂຂໍ້ມູນ</a>
+                                                                    <a data-user_id="<?= $row['user_id']; ?>" href="?delete=<?= $row['user_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -786,7 +779,10 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
         });
     }
 </script>
+
 </body>
+
 </html>
 <?php
+    
 ?>
