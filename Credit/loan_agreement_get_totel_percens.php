@@ -7,7 +7,7 @@
 
     if($ca_interest <> 0){
 
-        echo number_format($ca_interest[0]) . " %"; 
+        echo $ca_interest[0] . " %"; 
 
     } else {
         echo "ຍັງບໍ່ມີຂໍ້ມູນພໍທີ່ຈະເຮັດສັນຍາ";
