@@ -346,7 +346,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ເຄົາເ�
                 var cus_total_income = parseInt($(".cus_total_income").val());
                 var cus_total_expenses = parseInt($(".cus_total_expenses").val());
                 var totals = parseFloat((cus_total_expenses * 100) / cus_total_income) || 0;
-
                 percen = new Intl.NumberFormat().format(totals);
                 $("#percentage_expenses").val(percen);
             });
@@ -357,7 +356,6 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ເຄົາເ�
                 var cus_amount_income = parseInt($(".cus_amount_income").val());
                 var cus_total_income = parseInt($(".cus_total_income").val());
                 var totals = parseFloat((cus_amount_income * 100) / cus_total_income) || 0;
-
                 percen = new Intl.NumberFormat().format(totals);
                 $("#percentage_income").val(percen);
             });
@@ -509,35 +507,35 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ເຄົາເ�
                             })
                         })
                         </script>";
-                } else if ($cus_national_ids <> 0) {
-                    echo "<script>
-                        $(document).ready(function() {
-                            let timerInterval
-                            Swal.fire({
-                              title: 'ກຳລັງບັນທຶກຂໍ້ມູນ!',
-                              html: 'ບັນທຶກແລ້ວ <b></b> ຟາຍ.',
-                              timer: 1500,
-                              timerProgressBar: true,
-                              didOpen: () => {
-                                Swal.showLoading()
-                                const b = Swal.getHtmlContainer().querySelector('b')
-                                timerInterval = setInterval(() => {
-                                  b.textContent = Swal.getTimerLeft()
-                                }, 125)
-                              },
-                              willClose: () => {
-                                clearInterval(timerInterval)
-                              }
-                            }).then((result) => {
-                                Swal.fire({
-                                    title: 'ຂໍ້ຜິດພາດ',
-                                    text: 'ລະຫັດບັດປະຈຳຕົວຊ້ຳກັນ ກາລຸນາກວດສອບລະຫັດບັດປະຈຳຕົວຂອງລູ້ຄ້າ ແລ້ວລອງໃຫມ່ອີກຄັ້ງ!',
-                                    icon: 'error',
-                                    showConfirmButton: true
-                                });
-                            })
-                        })
-                        </script>";
+                    // } else if ($cus_national_ids <> 0) {
+                    //     echo "<script>
+                    //         $(document).ready(function() {
+                    //             let timerInterval
+                    //             Swal.fire({
+                    //               title: 'ກຳລັງບັນທຶກຂໍ້ມູນ!',
+                    //               html: 'ບັນທຶກແລ້ວ <b></b> ຟາຍ.',
+                    //               timer: 1500,
+                    //               timerProgressBar: true,
+                    //               didOpen: () => {
+                    //                 Swal.showLoading()
+                    //                 const b = Swal.getHtmlContainer().querySelector('b')
+                    //                 timerInterval = setInterval(() => {
+                    //                   b.textContent = Swal.getTimerLeft()
+                    //                 }, 125)
+                    //               },
+                    //               willClose: () => {
+                    //                 clearInterval(timerInterval)
+                    //               }
+                    //             }).then((result) => {
+                    //                 Swal.fire({
+                    //                     title: 'ຂໍ້ຜິດພາດ',
+                    //                     text: 'ລະຫັດບັດປະຈຳຕົວຊ້ຳກັນ ກາລຸນາກວດສອບລະຫັດບັດປະຈຳຕົວຂອງລູ້ຄ້າ ແລ້ວລອງໃຫມ່ອີກຄັ້ງ!',
+                    //                     icon: 'error',
+                    //                     showConfirmButton: true
+                    //                 });
+                    //             })
+                    //         })
+                    //         </script>";
                 } else {
                     $cus_image = $_FILES['cus_image'];
                     $allow = array('jpg', 'jpeg', 'png');
