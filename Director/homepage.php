@@ -478,6 +478,19 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                         <li><a style="font-size: 16px;" href="user_select_credit.php">ລາຍງານຂໍ້ມູນພະນັກງານສິນເຊື່ອ</a></li>
                         </ul>
                     </li>
+
+
+                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i style="font-size: 30px;" class="bi bi-check-circle-fill"></i>
+                            <span style="font-size: 16px;"class="nav-text">ລາຍງານຂໍ້ມູນການຢືນຢັນ</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a style="font-size: 16px;" href="customer_select_history_confirm.php">ລາຍງານການຢືນຢັນຂອງເຄົາເຕີ</a></li>
+                            <li><a style="font-size: 16px;" href="credit_release_select_confirm.php">ລາຍງານການຢືນຢັນຂອງສິນເຊື່ອ</a></li>
+                            <li><a style="font-size: 16px;" href="payment_select_confirm.php">ລາຍງານການຢືນຢັນຂອງການເງິນ</a></li>
+                        </ul>
+                    </li>
+                    
                     <li><a aria-expanded="false" href="user_select_counter.php">
                             <i style="font-size: 30px;" class="bi bi-person-bounding-box"></i>
                             <span style="font-size: 16px;"class="nav-text">ລາຍງານຂໍ້ມູນຜູ້ນຳໃຊ້</span>

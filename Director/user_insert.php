@@ -500,15 +500,7 @@ if ($row == "") {
 </head>
 
 <body>
-<?php
-if(@$_SESSION['checked']<>1){
-	echo "<script>
-  alert('ລົງຊືີ່ເຂົ້າໃຊ້ກ່ອນ')
-  location='index.php';
-	</script>";
-	}
-else{  
-?>
+
     <!--*******************
         Preloader start
     ********************-->
@@ -1128,5 +1120,5 @@ else{
 
 </html>
 <?php
-}
+
 ?>

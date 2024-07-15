@@ -735,6 +735,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                                     <a class="dropdown-item" href="#">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
                                                                     <a class="dropdown-item" href="loan_agreement_doc/<?php echo $row['lg_doc0']; ?>">ເອກກະສານສັນຍາເງິນກູ້</a>
                                                                     <hr>
+                                                                    <a class="dropdown-item button_edit" href="credit_analysis_update.php?id=<?php echo $row['gt_id']; ?> ">ແກ້ໄຂຂໍ້ມູນ</a>
+                                                                    <a data-gt_id="<?= $row['gt_id']; ?>" href="?delete=<?= $row['gt_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
                                                                 </div>
                                                             </div>
                                                         </td>

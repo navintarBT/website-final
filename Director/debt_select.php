@@ -637,7 +637,21 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ອຳນວຍ�
                                                             ?>
 
                                                         </td>
-                                                       
+                                                        <td>
+                                                            <div class="btn-group dropstart mb-1">
+                                                                
+                                                                <div style="background: #FDFEFE;" class="dropdown-menu">
+                                                                    <center>
+                                                                        <p style="margin-top: 5px; margin-bottom: -5px; margin-right: 5px;">ເມນູ</p>
+                                                                    </center>
+                                                                    <hr>
+                                                                    <a class="dropdown-item" href="#">ເບິ່ງຂໍ້ມູນເພີ້ມຕື່ມ</a>
+                                                                    <hr>
+                                                                    <a class="dropdown-item button_edit" href="credit_analysis_update.php?id=<?php echo $row['dt_id']; ?> ">ແກ້ໄຂຂໍ້ມູນ</a>
+                                                                    <a data-dt_id="<?= $row['dt_id']; ?>" href="?delete=<?= $row['dt_id']; ?>" class="dropdown-item delete-btn">ລົບຂໍ່ມູນ</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
