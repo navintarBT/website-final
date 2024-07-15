@@ -496,35 +496,35 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                                 })
                             })
                             </script>";
-                } else if ($la_land_titles) {
-                    echo "<script>
-                            $(document).ready(function() {
-                                let timerInterval
-                                Swal.fire({
-                                  title: 'ກຳລັງບັນທຶກຂໍ້ມູນ!',
-                                  html: 'ບັນທຶກແລ້ວ <b></b> ຟາຍ.',
-                                  timer: 1500,
-                                  timerProgressBar: true,
-                                  didOpen: () => {
-                                    Swal.showLoading()
-                                    const b = Swal.getHtmlContainer().querySelector('b')
-                                    timerInterval = setInterval(() => {
-                                      b.textContent = Swal.getTimerLeft()
-                                    }, 125)
-                                  },
-                                  willClose: () => {
-                                    clearInterval(timerInterval)
-                                  }
-                                }).then((result) => {
-                                    Swal.fire({
-                                        title: 'ຂໍ້ຜິດພາດ',
-                                        text: 'ເລກທີ່ໃບຕາດິນຊ້ຳກັນ!, ກົດຕົກລົງແລ້ວປ້ອນຂໍ້ມູນໃຫມ່',
-                                        icon: 'error', 
-                                        showConfirmButton: true
-                                    });
-                                })
-                            })
-                            </script>";
+                    // } else if ($la_land_titles) {
+                    //     echo "<script>
+                    //             $(document).ready(function() {
+                    //                 let timerInterval
+                    //                 Swal.fire({
+                    //                   title: 'ກຳລັງບັນທຶກຂໍ້ມູນ!',
+                    //                   html: 'ບັນທຶກແລ້ວ <b></b> ຟາຍ.',
+                    //                   timer: 1500,
+                    //                   timerProgressBar: true,
+                    //                   didOpen: () => {
+                    //                     Swal.showLoading()
+                    //                     const b = Swal.getHtmlContainer().querySelector('b')
+                    //                     timerInterval = setInterval(() => {
+                    //                       b.textContent = Swal.getTimerLeft()
+                    //                     }, 125)
+                    //                   },
+                    //                   willClose: () => {
+                    //                     clearInterval(timerInterval)
+                    //                   }
+                    //                 }).then((result) => {
+                    //                     Swal.fire({
+                    //                         title: 'ຂໍ້ຜິດພາດ',
+                    //                         text: 'ເລກທີ່ໃບຕາດິນຊ້ຳກັນ!, ກົດຕົກລົງແລ້ວປ້ອນຂໍ້ມູນໃຫມ່',
+                    //                         icon: 'error', 
+                    //                         showConfirmButton: true
+                    //                     });
+                    //                 })
+                    //             })
+                    //             </script>";
                 } else {
                     $la_map0 = $_FILES['la_map0'];
                     if (!empty($la_map0)) {
