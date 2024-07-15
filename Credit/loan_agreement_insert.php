@@ -741,7 +741,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
                 // }
 
                 $sql = $conn->prepare("INSERT INTO loan_agreement(lg_runing_id,lg_type,lg_playment,lg_set_month,lg_interest,lg_installments,lg_releaseds,lg_amount_releaseds,lg_totle_interest,lg_total_interest,lg_amount_bepaid_month,lg_capital_plus_interest,lg_status,lg_doc_name0,lg_doc0,lg_image,lg_date_in,lg_time_in,cus_id,collateral_id,ca_id,gt_id,cus_fname,cus_runing,user_id)
-                VALUES(:lg_runing_id,:lg_type,:lg_playment,:lg_set_month,:lg_interest,:lg_installments,:lg_releaseds,:lg_amount_releaseds,:lg_totle_interest,:lg_total_interest,:lg_amount_bepaid_month,:lg_capital_plus_interest,:lg_status,:lg_doc_name0,'$newname','$fileNew0',curdate(),curtime(),:cus_id,:collateral_id,:ca_id,:gt_id,:cus_fname,:cus_runing,:user_id)");
+                VALUES(:lg_runing_id,:lg_type,:lg_playment,:lg_set_month,:lg_interest,:lg_installments,:lg_releaseds,:lg_amount_releaseds,:lg_totle_interest,:lg_total_interest,:lg_amount_bepaid_month,:lg_capital_plus_interest,:lg_status,:lg_doc_name0,'$newname','',curdate(),curtime(),:cus_id,:collateral_id,:ca_id,:gt_id,:cus_fname,:cus_runing,:user_id)");
                 $sql->bindParam(":lg_runing_id", $lg_runing_id);
                 $sql->bindParam(":lg_type", $lg_type);
                 $sql->bindParam(":lg_playment", $ca_playment);

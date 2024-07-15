@@ -230,7 +230,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
 
         $id = $_POST['id'];
   
-        $select_stmt = $conn->prepare('SELECT * FROM customers WHERE cus_id = :id');
+        $select_stmt = $conn->prepare('SELECT * FROM guarantor WHERE gt_id = :id');
         $select_stmt->bindParam(":id", $id);
         $select_stmt->execute();
         $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
@@ -256,7 +256,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_satus'] === "ສິນເຊ�
   
         $gt_doc_fileold = $_POST['gt_doc_fileold'];
         $upload_file = $_FILES['gt_doc_file']['name'];
-        $old_doc = "docs/";
+        $old_doc = "guarantor_docs/";
   
         if ($upload_file != '') {
   
